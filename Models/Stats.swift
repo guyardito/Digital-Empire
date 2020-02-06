@@ -11,8 +11,18 @@ import Foundation
 
 struct Stats {
 	
+	
+	var specialEvents = [SpecialEvent]()
+
 	var gameTimeInDays = 0
 
+	// life situation
+	var numberOfChildren = 0
+	var hasSpouse = false
+	var housingCost = 0
+	var foodCost = 0
+	
+	
 	// skills
 	var copywriting = 0
 	var tech = 0
@@ -22,9 +32,10 @@ struct Stats {
 	
 	// assets
 	var money = 0
-	var emailListSize = 0
+	var subscribers = 0
 	var followers = 0
 	
+	var engagement = 0	// eg  email opening, post commenting, etc.
 	
 	var expensesPerDay = 0
 	

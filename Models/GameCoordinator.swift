@@ -45,30 +45,14 @@ class GameCoordinator {
 		// will there be a "chance card"
 		processChanceCard()
 		
+		processGenerators()  // can create RewardEvents
+		
+		processSpecialRewards()
+		
+		
 		stats.gameTimeInDays += 1
 	}
 	
-	
-	
-	func processChanceCard() {
-		
-	}
-	
-	
-	
-	func processUserEvent(event: Event) {
-		
-	}
-	
-	
-	func isGameOver() -> Bool {
-		
-		if stats.gameTimeInDays >= maxDaysToPlay { return true }
-		
-		if stats.money >= minAmountToMake { return true }
-		
-		return gameShouldEndOnNextTick
-	}
 	
 	
 	
@@ -88,6 +72,64 @@ class GameCoordinator {
 		// email, website hosting, etc
 		
 	}
+	
+	
+	func processChanceCard() {
+		// see if a chance should be played
+		
+		// if so, select and remove from deck
+		
+		// present to user
+		
+		// slow-down game for a few beats so that user can react
+		
+		// if appropriate, process their choice/result
+		
+		// if approriate, present consequence of their choice
+	}
+	
+	
+	
+	func processGenerators() {  // can generate SpecialEvents
+		// ads, posts, etc
+		
+		// add subscribers
+		
+		// income from purchased products / services
+		
+	}
+	
+	
+	
+	func processUserEvent(event: Event) {
+		// create something
+		
+		// learn something
+		
+		// advertise
+		
+		// boost a post
+	}
+	
+	
+	
+	
+	func processSpecialRewards() {
+		
+	}
+	
+	
+	
+	func isGameOver() -> Bool {
+		
+		if stats.gameTimeInDays >= maxDaysToPlay { return true }
+		
+		if stats.money >= minAmountToMake { return true }
+		
+		return gameShouldEndOnNextTick
+	}
+	
+	
 	
 
 }

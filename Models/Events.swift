@@ -12,33 +12,10 @@ enum Event {
 	
 }
 
-enum gameEvent {
-	case addSubscribers(number:Int)
-	case loseSubscribers(number:Int)
-	
-	case openedEmail(percent:Int)
-	
-	case clickedOnAd(number:Int)
-	
-}
-
-enum eventChance {
-	case websiteDown
-	
-	case paymentProcessingDown
-	
-	case userComplains
-	case InfluenceComplains
-	case influencerPraises
-	
-	case postingGoesViral
-	
-	case attendConferenceAndMeetJV
-	case attendConferenceAndMeetSpeaker
-}
 
 
-enum userEvent {
+
+enum UserEvent {
 	case createAd
 	case runAd
 	case cancelAd
@@ -59,6 +36,51 @@ enum userEvent {
 	
 	case hostWebinar
 	
+}
+
+
+enum SpecialEvent {
+	case crossedSubscriberThreshold(number:Int) // 1000, 10,000  100,000  1,000,000
 	
+	case crossedRevenueThreshold(amount:Int)
+	
+	case crossedInGamePurchaseThreshold(amount:Int)  // 25, 50, 100, 200
 	
 }
+
+
+
+
+enum GameEvent {
+	// can only happen if you have an OptIn
+	case addSubscribers(number:Int)
+	case loseSubscribers(number:Int)
+	
+	case openedEmail(percent:Int)
+	
+	// can only happen if you run an Ad
+	case clickedOnAd(number:Int)
+	
+}
+
+
+enum ChanceEvent {
+	
+	// bad
+	case websiteDown
+	case paymentProcessingDown
+	case userComplains
+	case InfluenceComplains
+	case socialMediaCancelsYourAccount
+	case userSues
+	
+	// good
+	case influencerPraises
+	case postingGoesViral
+	
+	//
+	case attendConferenceAndMeetJV
+	case attendConferenceAndMeetSpeaker
+	
+}
+
