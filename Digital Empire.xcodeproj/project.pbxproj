@@ -13,6 +13,10 @@
 		67ABE06523EC63D0005A454E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67ABE06323EC63D0005A454E /* Main.storyboard */; };
 		67ABE06723EC63D5005A454E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67ABE06623EC63D5005A454E /* Assets.xcassets */; };
 		67ABE06A23EC63D5005A454E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67ABE06823EC63D5005A454E /* LaunchScreen.storyboard */; };
+		67C241B523EC984700D2CA83 /* GameCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C241B423EC984700D2CA83 /* GameCoordinator.swift */; };
+		67C241B723EC986700D2CA83 /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C241B623EC986700D2CA83 /* Stats.swift */; };
+		67C241B923EC987400D2CA83 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C241B823EC987400D2CA83 /* Events.swift */; };
+		67C241BB23EC98A400D2CA83 /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C241BA23EC98A400D2CA83 /* Misc.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +29,10 @@
 		67ABE06923EC63D5005A454E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		67ABE06B23EC63D5005A454E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		67ABE07123EC63E9005A454E /* Digital Empire.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Digital Empire.entitlements"; sourceTree = "<group>"; };
+		67C241B423EC984700D2CA83 /* GameCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCoordinator.swift; sourceTree = "<group>"; };
+		67C241B623EC986700D2CA83 /* Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
+		67C241B823EC987400D2CA83 /* Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
+		67C241BA23EC98A400D2CA83 /* Misc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Misc.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,8 +49,8 @@
 		67ABE05123EC63D0005A454E = {
 			isa = PBXGroup;
 			children = (
+				67C241B323EC983400D2CA83 /* Models */,
 				67ABE07423EC6488005A454E /* Media */,
-				67ABE07223EC6463005A454E /* Data */,
 				67ABE07323EC646E005A454E /* VCs */,
 				67ABE05C23EC63D0005A454E /* Digital Empire */,
 				67ABE05B23EC63D0005A454E /* Products */,
@@ -70,13 +78,6 @@
 			path = "Digital Empire";
 			sourceTree = "<group>";
 		};
-		67ABE07223EC6463005A454E /* Data */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
 		67ABE07323EC646E005A454E /* VCs */ = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +92,17 @@
 			children = (
 			);
 			path = Media;
+			sourceTree = "<group>";
+		};
+		67C241B323EC983400D2CA83 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				67C241B423EC984700D2CA83 /* GameCoordinator.swift */,
+				67C241BA23EC98A400D2CA83 /* Misc.swift */,
+				67C241B623EC986700D2CA83 /* Stats.swift */,
+				67C241B823EC987400D2CA83 /* Events.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,8 +176,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67C241B923EC987400D2CA83 /* Events.swift in Sources */,
 				67ABE06223EC63D0005A454E /* ViewController.swift in Sources */,
+				67C241B723EC986700D2CA83 /* Stats.swift in Sources */,
 				67ABE05E23EC63D0005A454E /* AppDelegate.swift in Sources */,
+				67C241BB23EC98A400D2CA83 /* Misc.swift in Sources */,
+				67C241B523EC984700D2CA83 /* GameCoordinator.swift in Sources */,
 				67ABE06023EC63D0005A454E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
