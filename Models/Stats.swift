@@ -11,7 +11,8 @@ import Foundation
 
 struct Stats {
 	
-	
+	var gameTimeInDays = 0
+
 	// skills
 	var copywriting = 0
 	var tech = 0
@@ -23,4 +24,8 @@ struct Stats {
 	var money = 0
 	var emailListSize = 0
 	var followers = 0
+	
+	
+	var expensesPerDay = 0
+	
 }

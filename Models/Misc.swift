@@ -15,8 +15,28 @@ enum Asset {
 	case Ad
 	case OptIn
 	case Webinar
-	case LiveConference
+	
+	// case LiveConference
 }
+
+
+enum TasksWorkingOn {
+	case childcare
+	case housecare
+	
+	case writeSalesPage
+	case createCourse
+	case writeAd
+	case postToSocialMeda
+	
+	case attendConference
+	
+	case studyCopywriting
+	case studyTechnology
+	case studyInfluence
+}
+
+
 
 
 
