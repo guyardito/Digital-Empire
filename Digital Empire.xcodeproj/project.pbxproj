@@ -17,6 +17,7 @@
 		67C241B723EC986700D2CA83 /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C241B623EC986700D2CA83 /* Stats.swift */; };
 		67C241B923EC987400D2CA83 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C241B823EC987400D2CA83 /* Events.swift */; };
 		67C241BB23EC98A400D2CA83 /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C241BA23EC98A400D2CA83 /* Misc.swift */; };
+		67C241BD23ECB64500D2CA83 /* Elements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C241BC23ECB64500D2CA83 /* Elements.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		67C241B623EC986700D2CA83 /* Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
 		67C241B823EC987400D2CA83 /* Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
 		67C241BA23EC98A400D2CA83 /* Misc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Misc.swift; sourceTree = "<group>"; };
+		67C241BC23ECB64500D2CA83 /* Elements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Elements.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 				67C241BA23EC98A400D2CA83 /* Misc.swift */,
 				67C241B623EC986700D2CA83 /* Stats.swift */,
 				67C241B823EC987400D2CA83 /* Events.swift */,
+				67C241BC23ECB64500D2CA83 /* Elements.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -182,6 +185,7 @@
 				67ABE05E23EC63D0005A454E /* AppDelegate.swift in Sources */,
 				67C241BB23EC98A400D2CA83 /* Misc.swift in Sources */,
 				67C241B523EC984700D2CA83 /* GameCoordinator.swift in Sources */,
+				67C241BD23ECB64500D2CA83 /* Elements.swift in Sources */,
 				67ABE06023EC63D0005A454E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
