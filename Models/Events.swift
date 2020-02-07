@@ -8,14 +8,14 @@
 
 import Foundation
 
-enum Event {
+protocol Event {
 	
 }
 
 
 
 
-enum UserEvent {
+enum UserEvent : Event {
 	case createAd
 	case runAd
 	case cancelAd
@@ -39,7 +39,7 @@ enum UserEvent {
 }
 
 
-enum SpecialEvent {
+enum SpecialEvent : Event {
 	case crossedSubscriberThreshold(number:Int) // 1000, 10,000  100,000  1,000,000
 	
 	case crossedRevenueThreshold(amount:Int)

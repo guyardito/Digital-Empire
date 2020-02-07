@@ -10,17 +10,26 @@ import Foundation
 
 
 struct Stats {
-	
-	
-	var specialEvents = [SpecialEvent]()
-
+		
 	var gameTimeInDays = 0
 
+	
 	// life situation
 	var numberOfChildren = 0
 	var hasSpouse = false
 	var housingCost = 0
 	var foodCost = 0
+
+	var livingExpenses = [LivingExpense]()
+	
+	var marketingItems = [MarketingItem]()
+
+	var businessExpenses = [BusinessExpenseType]()
+	
+	
+	var specialEvents = [SpecialEvent]()
+
+
 	
 	
 	// skills

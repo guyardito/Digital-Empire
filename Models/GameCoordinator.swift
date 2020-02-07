@@ -10,9 +10,14 @@ import Foundation
 
 
 
+
+
 // NB this is a 'class' so that the callbacks from the timer can easily mutate the object
 
 class GameCoordinator {
+	
+	var history = [Event]()
+		
 	
 	var gameShouldEndOnNextTick = false
 	
@@ -21,11 +26,12 @@ class GameCoordinator {
 	
 	var stats = Stats()
 	
+	var timer : Timer?
 	
 	init() {
 		// start event timer, callbac, to processTick
 		
-		_ = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(processTimerTick), userInfo: nil, repeats: true)
+		timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(processTimerTick), userInfo: nil, repeats: true)
 
 	}
 	
@@ -45,7 +51,7 @@ class GameCoordinator {
 		// will there be a "chance card"
 		processChanceCard()
 		
-		processGenerators()  // can create RewardEvents
+		processIncomeGenerators()  // can create RewardEvents
 		
 		processSpecialRewards()
 		
@@ -60,6 +66,13 @@ class GameCoordinator {
 		// add spends
 		
 		// post boosts
+		
+		for item in stats.marketingItems {
+			let e = item.dailyExpense
+			
+			stats.money -= e
+		}
+
 	}
 	
 	
@@ -90,7 +103,7 @@ class GameCoordinator {
 	
 	
 	
-	func processGenerators() {  // can generate SpecialEvents
+	func processIncomeGenerators() {  // can generate SpecialEvents
 		// ads, posts, etc
 		
 		// add subscribers
