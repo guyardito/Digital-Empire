@@ -8,41 +8,44 @@
 
 import Foundation
 
-
-struct Stats {
+// NB!  need this to be a 'class' so that @Published will be accepted
+class Stats {
 		
-	var gameTimeInDays = 0
+	@Published var gameTimeInDays = 0
 
 	// skills
-	var copywriting = 0
-	var tech = 0
-	var influence = 0
-	var audacity = 0
+	@Published var copywriting = 0
+	@Published var tech = 0
+	@Published var influence = 0
+	@Published var audacity = 0
 	
+	// the higher the overwhelm the slower a task takes to do
+	// the higher the overwhelm the lower the impact of your influence, tech, etc.
+	@Published var overwhelm = 0
 	
 	// assets
-	var money = 0
-	var subscribers = 0
-	var followers = 0
+	@Published var money = 0
+	@Published var subscribers = 0
+	@Published var followers = 0
 	
-	var aggregateEngagement = 0	// eg  email opening, post commenting, etc.
+	@Published var aggregateEngagement = 0	// eg  email opening, post commenting, etc.
 	
 	
 	
-	var livingExpenses = [LivingExpense]()
+	@Published var livingExpenses = [LivingExpense]()
 
 
-	var createdItems = [CreatableItem]()
-	var moneyMakers = [MoneyMaker]()
+	@Published var createdItems = [CreatableItem]()
+	@Published var moneyMakers = [MoneyMaker]()
 
-	
-	var marketingItems = [MarketingItem]()
+	@Published var ads = [AdData]()
+	@Published var marketingItems = [MarketingItem]()
 
 	
 	//var businessExpenses = [BusinessExpenseType]()
 	
 	
-	var specialEvents = [SpecialEvent]()
+	@Published var specialEvents = [SpecialEvent]()
 
 
 	

@@ -15,30 +15,6 @@ protocol Event {
 
 
 
-enum UserEvent : Event {
-	case createAd
-	case runAd
-	case cancelAd
-	
-	
-	case buildOptin
-	case buildWebsite
-	case buildFreebie
-	case attendConference
-	
-	case contractDesigner
-	case contractCopywriter
-	
-	case studyCopywriting
-	case studyTechnology
-	case studyInfluence
-	case studyConfidence   // via NLPCoach
-	
-	case hostWebinar
-	
-}
-
-
 enum SpecialEvent : Event {
 	case crossedSubscriberThreshold(number:Int) // 1000, 10,000  100,000  1,000,000
 	
@@ -64,6 +40,7 @@ enum GameEvent {
 }
 
 
+
 enum ChanceEvent {
 	
 	// bad
@@ -84,3 +61,27 @@ enum ChanceEvent {
 	
 }
 
+
+
+enum UserEvent : Event {
+	case createAd
+	case runAd
+	case cancelAd
+	
+	
+	case buildOptin
+	case buildWebsite
+	case buildFreebie
+	case attendConference
+	
+	case contractDesigner
+	case contractCopywriter
+	
+	case studyCopywriting
+	case studyTechnology
+	case studyInfluence
+	case studyConfidence   // via NLPCoach
+	
+	case hostWebinar
+	
+}

@@ -9,10 +9,27 @@
 import SwiftUI
 import CoreGraphics
 
+class AdData {
+	@Published var name:String
+	@Published var clickThru:Int
+	@Published var totalClicks:Int
+	
+	
+	init(name:String, clickThru:Int, totalClicks:Int) {
+		self.name = name
+		self.clickThru = clickThru
+		self.totalClicks = totalClicks
+	}
+}
+
+
+
 struct MarketingView: View {
 	
 	@State var sliderValue = 20.0
 
+	@State var data:AdData
+	
 	
 	var body: some View {
 		
@@ -20,9 +37,9 @@ struct MarketingView: View {
 			Spacer(minLength: CGFloat(40))
 			HStack {
 				VStack {
-					Text("Ad 1")
-					Text("3% click-thru")
-					Text("Total Clicks: 4391")
+					Text("\(self.data.name)")
+					Text("\(self.data.clickThru)% click-thru")
+					Text("Total Clicks: \(self.data.totalClicks)")
 					Slider(value: $sliderValue)
 				}
 				Spacer(minLength: CGFloat(40.0))
@@ -45,6 +62,6 @@ struct MarketingView: View {
 
 struct MarketingView_Previews: PreviewProvider {
     static var previews: some View {
-        MarketingView()
+		MarketingView( data: AdData(name: "ad 2", clickThru: 4, totalClicks: 2391))
     }
 }
