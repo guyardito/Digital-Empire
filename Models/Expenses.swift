@@ -22,33 +22,6 @@ struct Expense {
 */
 
 
-func defaultMonthlyAmountFor(expense:LivingExpenseType) -> Int {
-	
-	switch expense {
-		case .ChildCare: return 1000
-		case .Housing: return 2500
-		case .Food: return 300
-		case .Car: return 300
-	}
-}
-
-
-
-func defaultDailyAmountFor(expense:MarketingItemType) -> Int {
-	
-	switch expense {
-		case .Ad : return 0
-		case .AdRun: return 25
-		
-		case .Post: return 0
-		case .PostBoost: return 2
-		//case .CourseHostingSoftware: return 5
-		//case .AttendConference: return 3000
-	}
-}
-
-
-
 
 // treat these as monthly
 enum LivingExpenseType {
@@ -73,10 +46,14 @@ struct LivingExpense {
 
 
 enum MarketingItemType {
-	case Ad
-	case AdRun
-	case Post
-	case PostBoost
+	
+	case Ad(effectiveness:Int)  // affected by copywriting
+	case AdRun(dailySpend:Int) // affected by technology
+	
+	case Post(effectiveness:Int)  // affected by influence
+	case PostBoost(dailySpend:Int)
+	
+	case emailCampaign(effectivenss:Int) // affected by copywriting, engagement
 }
 
 
@@ -84,6 +61,8 @@ enum MarketingItemType {
 struct MarketingItem {
 	
 	let type:MarketingItemType
+	
+	var timeLeftToCreate:Int   // in game ticks (which is likely days)
 	
 	var dailyExpense:Int
 	
@@ -103,6 +82,8 @@ struct MarketingItem {
 			case .PostBoost:
 				print("boost")
 			
+			case .emailCampaign:
+				print("campaign")
 		}
 	}
 }
@@ -119,4 +100,37 @@ enum BusinessExpenseType {
 
 }
 
+
+
+
+
+
+
+
+
+func defaultMonthlyAmountFor(expense:LivingExpenseType) -> Int {
+	
+	switch expense {
+		case .ChildCare: return 1000
+		case .Housing: return 2500
+		case .Food: return 300
+		case .Car: return 300
+	}
+}
+
+
+
+func defaultDailyAmountFor(expense:MarketingItemType) -> Int {
+	
+	switch expense {
+		case .Ad : return 0
+		case .AdRun: return 25
+		
+		case .Post: return 0
+		case .PostBoost: return 2
+		//case .CourseHostingSoftware: return 5
+		//case .AttendConference: return 3000
+		case .emailCampaign: return 0
+	}
+}
 

@@ -13,25 +13,6 @@ struct Stats {
 		
 	var gameTimeInDays = 0
 
-	
-	// life situation
-	var numberOfChildren = 0
-	var hasSpouse = false
-	var housingCost = 0
-	var foodCost = 0
-
-	var livingExpenses = [LivingExpense]()
-	
-	var marketingItems = [MarketingItem]()
-
-	var businessExpenses = [BusinessExpenseType]()
-	
-	
-	var specialEvents = [SpecialEvent]()
-
-
-	
-	
 	// skills
 	var copywriting = 0
 	var tech = 0
@@ -44,8 +25,26 @@ struct Stats {
 	var subscribers = 0
 	var followers = 0
 	
-	var engagement = 0	// eg  email opening, post commenting, etc.
+	var aggregateEngagement = 0	// eg  email opening, post commenting, etc.
 	
-	var expensesPerDay = 0
+	
+	
+	var livingExpenses = [LivingExpense]()
+
+
+	var createdItems = [CreatableItem]()
+	var moneyMakers = [MoneyMaker]()
+
+	
+	var marketingItems = [MarketingItem]()
+
+	
+	//var businessExpenses = [BusinessExpenseType]()
+	
+	
+	var specialEvents = [SpecialEvent]()
+
+
+	
 	
 }

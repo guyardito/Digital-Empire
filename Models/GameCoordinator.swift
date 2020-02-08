@@ -10,8 +10,6 @@ import Foundation
 
 
 
-
-
 // NB this is a 'class' so that the callbacks from the timer can easily mutate the object
 
 class GameCoordinator {
@@ -28,18 +26,33 @@ class GameCoordinator {
 	
 	var timer : Timer?
 	
+	
+	
 	init() {
+	}
+	
+	
+	
+	func startGame() {
+		stats = Stats()
+		
+		gameShouldEndOnNextTick = false
+		
 		// start event timer, callbac, to processTick
 		
 		timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(processTimerTick), userInfo: nil, repeats: true)
+		
 
 	}
+	
 	
 	
 	
 	@objc func processTimerTick() {
 		
 		//decrement timeLeft for any current tasks
+		
+		processItemCreation()
 		
 		processDailyExpenses()
 		
@@ -60,6 +73,12 @@ class GameCoordinator {
 	}
 	
 	
+	func processItemCreation() {
+		for (idx, item) in stats.createdItems.enumerated() {
+			stats.createdItems[idx].timeLeftTillCreated -= 1
+			
+		}
+	}
 	
 	
 	func processDailyExpenses() {
@@ -84,7 +103,13 @@ class GameCoordinator {
 		
 		// email, website hosting, etc
 		
+		for item in stats.livingExpenses {
+			let e = item.monthlyExpense
+			
+			stats.money -= e
+		}
 	}
+	
 	
 	
 	func processChanceCard() {
@@ -110,6 +135,11 @@ class GameCoordinator {
 		
 		// income from purchased products / services
 		
+		for i in stats.moneyMakers {
+			let income = 10 // ???
+			
+			stats.money += income
+		}
 	}
 	
 	
