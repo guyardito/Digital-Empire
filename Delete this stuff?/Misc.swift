@@ -8,6 +8,7 @@
 
 import Foundation
 
+/*
 enum Asset {
 	case Website
 	case SalesPage
@@ -78,7 +79,7 @@ struct LiveConference {
 struct Session {
 	
 }
-
+*/
 
 
 
