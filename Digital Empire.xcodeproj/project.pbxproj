@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		674B073423ED0561000210AE /* Expenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674B073323ED0561000210AE /* Expenses.swift */; };
+		674B075723EEF699000210AE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674B075623EEF699000210AE /* ContentView.swift */; };
+		674B075A23EEFD6E000210AE /* MarketingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674B075923EEFD6E000210AE /* MarketingView.swift */; };
 		67ABE05E23EC63D0005A454E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67ABE05D23EC63D0005A454E /* AppDelegate.swift */; };
 		67ABE06023EC63D0005A454E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67ABE05F23EC63D0005A454E /* SceneDelegate.swift */; };
 		67ABE06223EC63D0005A454E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67ABE06123EC63D0005A454E /* ViewController.swift */; };
@@ -23,6 +25,8 @@
 
 /* Begin PBXFileReference section */
 		674B073323ED0561000210AE /* Expenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expenses.swift; sourceTree = "<group>"; };
+		674B075623EEF699000210AE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		674B075923EEFD6E000210AE /* MarketingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketingView.swift; sourceTree = "<group>"; };
 		67ABE05A23EC63D0005A454E /* Digital Empire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Digital Empire.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		67ABE05D23EC63D0005A454E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		67ABE05F23EC63D0005A454E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -50,12 +54,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		674B075523EEF675000210AE /* TestSwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				674B075623EEF699000210AE /* ContentView.swift */,
+				674B075923EEFD6E000210AE /* MarketingView.swift */,
+			);
+			path = TestSwiftUI;
+			sourceTree = "<group>";
+		};
+		674B075823EEF7FA000210AE /* Delete this stuff? */ = {
+			isa = PBXGroup;
+			children = (
+				67C241BA23EC98A400D2CA83 /* Misc.swift */,
+			);
+			path = "Delete this stuff?";
+			sourceTree = "<group>";
+		};
 		67ABE05123EC63D0005A454E = {
 			isa = PBXGroup;
 			children = (
 				67C241B323EC983400D2CA83 /* Models */,
 				67ABE07423EC6488005A454E /* Media */,
 				67ABE07323EC646E005A454E /* VCs */,
+				674B075823EEF7FA000210AE /* Delete this stuff? */,
+				674B075523EEF675000210AE /* TestSwiftUI */,
 				67ABE05C23EC63D0005A454E /* Digital Empire */,
 				67ABE05B23EC63D0005A454E /* Products */,
 			);
@@ -102,7 +125,6 @@
 			isa = PBXGroup;
 			children = (
 				67C241B423EC984700D2CA83 /* GameCoordinator.swift */,
-				67C241BA23EC98A400D2CA83 /* Misc.swift */,
 				67C241B623EC986700D2CA83 /* Stats.swift */,
 				67C241B823EC987400D2CA83 /* Events.swift */,
 				674B073323ED0561000210AE /* Expenses.swift */,
@@ -188,6 +210,8 @@
 				67ABE05E23EC63D0005A454E /* AppDelegate.swift in Sources */,
 				67C241BB23EC98A400D2CA83 /* Misc.swift in Sources */,
 				67C241B523EC984700D2CA83 /* GameCoordinator.swift in Sources */,
+				674B075A23EEFD6E000210AE /* MarketingView.swift in Sources */,
+				674B075723EEF699000210AE /* ContentView.swift in Sources */,
 				674B073423ED0561000210AE /* Expenses.swift in Sources */,
 				67C241BD23ECB64500D2CA83 /* Elements.swift in Sources */,
 				67ABE06023EC63D0005A454E /* SceneDelegate.swift in Sources */,
