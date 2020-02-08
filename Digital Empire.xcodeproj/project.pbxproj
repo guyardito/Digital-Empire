@@ -8,8 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		674B073423ED0561000210AE /* Expenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674B073323ED0561000210AE /* Expenses.swift */; };
-		674B075723EEF699000210AE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674B075623EEF699000210AE /* ContentView.swift */; };
+		674B075723EEF699000210AE /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674B075623EEF699000210AE /* GameView.swift */; };
 		674B075A23EEFD6E000210AE /* MarketingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674B075923EEFD6E000210AE /* MarketingView.swift */; };
+		674B075C23EF0DCA000210AE /* Game Mechanics.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 674B075B23EF0DCA000210AE /* Game Mechanics.rtf */; };
+		674B075E23EF3C2B000210AE /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674B075D23EF3C2B000210AE /* UserData.swift */; };
+		674B076123EF3D5E000210AE /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 674B076023EF3D5E000210AE /* SwiftUI.framework */; };
 		67ABE05E23EC63D0005A454E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67ABE05D23EC63D0005A454E /* AppDelegate.swift */; };
 		67ABE06023EC63D0005A454E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67ABE05F23EC63D0005A454E /* SceneDelegate.swift */; };
 		67ABE06223EC63D0005A454E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67ABE06123EC63D0005A454E /* ViewController.swift */; };
@@ -25,8 +28,11 @@
 
 /* Begin PBXFileReference section */
 		674B073323ED0561000210AE /* Expenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expenses.swift; sourceTree = "<group>"; };
-		674B075623EEF699000210AE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		674B075623EEF699000210AE /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		674B075923EEFD6E000210AE /* MarketingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketingView.swift; sourceTree = "<group>"; };
+		674B075B23EF0DCA000210AE /* Game Mechanics.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "Game Mechanics.rtf"; sourceTree = "<group>"; };
+		674B075D23EF3C2B000210AE /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		674B076023EF3D5E000210AE /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/SwiftUI.framework; sourceTree = DEVELOPER_DIR; };
 		67ABE05A23EC63D0005A454E /* Digital Empire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Digital Empire.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		67ABE05D23EC63D0005A454E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		67ABE05F23EC63D0005A454E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				674B076123EF3D5E000210AE /* SwiftUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,7 +64,7 @@
 		674B075523EEF675000210AE /* TestSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				674B075623EEF699000210AE /* ContentView.swift */,
+				674B075623EEF699000210AE /* GameView.swift */,
 				674B075923EEFD6E000210AE /* MarketingView.swift */,
 			);
 			path = TestSwiftUI;
@@ -71,9 +78,18 @@
 			path = "Delete this stuff?";
 			sourceTree = "<group>";
 		};
+		674B075F23EF3D5E000210AE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				674B076023EF3D5E000210AE /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		67ABE05123EC63D0005A454E = {
 			isa = PBXGroup;
 			children = (
+				674B075B23EF0DCA000210AE /* Game Mechanics.rtf */,
 				67C241B323EC983400D2CA83 /* Models */,
 				67ABE07423EC6488005A454E /* Media */,
 				67ABE07323EC646E005A454E /* VCs */,
@@ -81,6 +97,7 @@
 				674B075523EEF675000210AE /* TestSwiftUI */,
 				67ABE05C23EC63D0005A454E /* Digital Empire */,
 				67ABE05B23EC63D0005A454E /* Products */,
+				674B075F23EF3D5E000210AE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -129,6 +146,7 @@
 				67C241B823EC987400D2CA83 /* Events.swift */,
 				674B073323ED0561000210AE /* Expenses.swift */,
 				67C241BC23ECB64500D2CA83 /* Elements.swift */,
+				674B075D23EF3C2B000210AE /* UserData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -192,6 +210,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				67ABE06A23EC63D5005A454E /* LaunchScreen.storyboard in Resources */,
+				674B075C23EF0DCA000210AE /* Game Mechanics.rtf in Resources */,
 				67ABE06723EC63D5005A454E /* Assets.xcassets in Resources */,
 				67ABE06523EC63D0005A454E /* Main.storyboard in Resources */,
 			);
@@ -210,8 +229,9 @@
 				67ABE05E23EC63D0005A454E /* AppDelegate.swift in Sources */,
 				67C241BB23EC98A400D2CA83 /* Misc.swift in Sources */,
 				67C241B523EC984700D2CA83 /* GameCoordinator.swift in Sources */,
+				674B075E23EF3C2B000210AE /* UserData.swift in Sources */,
 				674B075A23EEFD6E000210AE /* MarketingView.swift in Sources */,
-				674B075723EEF699000210AE /* ContentView.swift in Sources */,
+				674B075723EEF699000210AE /* GameView.swift in Sources */,
 				674B073423ED0561000210AE /* Expenses.swift in Sources */,
 				67C241BD23ECB64500D2CA83 /* Elements.swift in Sources */,
 				67ABE06023EC63D0005A454E /* SceneDelegate.swift in Sources */,
