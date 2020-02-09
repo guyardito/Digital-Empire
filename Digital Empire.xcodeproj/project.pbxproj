@@ -19,6 +19,7 @@
 		67ABE06523EC63D0005A454E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67ABE06323EC63D0005A454E /* Main.storyboard */; };
 		67ABE06723EC63D5005A454E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67ABE06623EC63D5005A454E /* Assets.xcassets */; };
 		67ABE06A23EC63D5005A454E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67ABE06823EC63D5005A454E /* LaunchScreen.storyboard */; };
+		67BDABF023EF9625006B9702 /* BasicStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BDABEF23EF9625006B9702 /* BasicStatsView.swift */; };
 		67C241B523EC984700D2CA83 /* GameCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C241B423EC984700D2CA83 /* GameCoordinator.swift */; };
 		67C241B723EC986700D2CA83 /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C241B623EC986700D2CA83 /* Stats.swift */; };
 		67C241B923EC987400D2CA83 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C241B823EC987400D2CA83 /* Events.swift */; };
@@ -42,6 +43,7 @@
 		67ABE06923EC63D5005A454E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		67ABE06B23EC63D5005A454E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		67ABE07123EC63E9005A454E /* Digital Empire.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Digital Empire.entitlements"; sourceTree = "<group>"; };
+		67BDABEF23EF9625006B9702 /* BasicStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicStatsView.swift; sourceTree = "<group>"; };
 		67C241B423EC984700D2CA83 /* GameCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCoordinator.swift; sourceTree = "<group>"; };
 		67C241B623EC986700D2CA83 /* Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
 		67C241B823EC987400D2CA83 /* Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 			children = (
 				674B075623EEF699000210AE /* GameView.swift */,
 				674B075923EEFD6E000210AE /* MarketingView.swift */,
+				67BDABEF23EF9625006B9702 /* BasicStatsView.swift */,
 			);
 			path = TestSwiftUI;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 				674B075A23EEFD6E000210AE /* MarketingView.swift in Sources */,
 				674B075723EEF699000210AE /* GameView.swift in Sources */,
 				674B073423ED0561000210AE /* Expenses.swift in Sources */,
+				67BDABF023EF9625006B9702 /* BasicStatsView.swift in Sources */,
 				67C241BD23ECB64500D2CA83 /* Elements.swift in Sources */,
 				67ABE06023EC63D0005A454E /* SceneDelegate.swift in Sources */,
 			);
