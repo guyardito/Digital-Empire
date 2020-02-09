@@ -9,14 +9,21 @@
 import SwiftUI
 import CoreGraphics
 
-class AdData {
+
+
+
+class AdData : Identifiable, ObservableObject {
+	var id:Int
+	
 	@Published var name:String
 	@Published var dailySpend:Int
 	@Published var clickThru:Int
 	@Published var totalClicks:Int
+
 	
 	
 	init(name:String, dailySpend:Int, clickThru:Int, totalClicks:Int) {
+		self.id = name.hashValue
 		self.name = name
 		self.dailySpend = dailySpend
 		self.clickThru = clickThru
@@ -30,8 +37,8 @@ struct MarketingView: View {
 	
 	@State var sliderValue = 20.0
 
-	@State var data:AdData
-	
+	@ObservedObject var data:AdData
+
 	
 	var body: some View {
 		
@@ -67,6 +74,6 @@ struct MarketingView: View {
 
 struct MarketingView_Previews: PreviewProvider {
     static var previews: some View {
-		MarketingView( data: AdData(name: "ad 2", dailySpend: 8, clickThru: 4, totalClicks: 2391))
+		MarketingView( data: AdData(name: "ad 6", dailySpend: 8, clickThru: 4, totalClicks: 2391))
     }
 }

@@ -9,7 +9,7 @@
 import Foundation
 
 // NB!  need this to be a 'class' so that @Published will be accepted
-class Stats {
+class Stats : ObservableObject {
 		
 	@Published var gameTimeInDays = 0
 

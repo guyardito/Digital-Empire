@@ -13,8 +13,7 @@ import SwiftUI
 struct GameView: View {
 	
 
-	//@State var adDataArray: [AdData]
-	@State var stats : Stats
+	@ObservedObject var stats : Stats
 	
 	
 	var body: some View {
@@ -36,7 +35,10 @@ struct GameView: View {
 			HStack {
 				Spacer()
 				
-				Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+				Button(action: {
+					print("hey")
+					//self.stats.ads[0].objectWillChange.send()
+					self.stats.ads[0].clickThru += 1 }) {
 					Text("Build")
 						//
 				}
