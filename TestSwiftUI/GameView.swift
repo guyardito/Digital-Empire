@@ -103,12 +103,12 @@ func getUserData() -> Stats {
 }
 
 
+
 struct ContentView_Previews: PreviewProvider {
 	
 	// NB this *MUST* be 'static' in order to compile!
 	static var stats = getUserData()
 		
-	
 	static var previews: some View {
 
 		GameView(stats: stats)

@@ -12,8 +12,7 @@ struct BasicStatsView: View {
 	
 	
 	
-	//@State var adDataArray: [AdData]
-	@State var stats : Stats
+	@ObservedObject var stats : Stats
 	
 	
 	
@@ -30,7 +29,7 @@ struct BasicStatsView: View {
 			HStack {
 				Spacer()
 				VStack {
-					Text("67")
+					Text("\(stats.gameTimeInDays)")
 					Text("Day").font(.caption)
 					
 				}

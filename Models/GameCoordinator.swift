@@ -13,7 +13,7 @@ import Foundation
 // NB this is a 'class' so that the callbacks from the timer can easily mutate the object
 
 class GameCoordinator {
-	
+		
 	var history = [Event]()
 		
 	
@@ -27,14 +27,15 @@ class GameCoordinator {
 	var timer : Timer?
 	
 	
-	
-	init() {
+/*
+	init(stats:Stats) {
+		self.stats = stats
 	}
+	*/
 	
 	
-	
-	func startGame() {
-		stats = Stats()
+	func startGame(stats:Stats) {
+		self.stats = stats
 		
 		gameShouldEndOnNextTick = false
 		
@@ -51,6 +52,14 @@ class GameCoordinator {
 	@objc func processTimerTick() {
 		
 		//decrement timeLeft for any current tasks
+		
+		let v = Int.random(in: 0 ... 10)
+		let i = Bool.random()
+		if i {
+			stats.ads[1].totalClicks += v
+		} else {
+			stats.ads[1].totalClicks -= v
+		}
 		
 		processItemCreation()
 		

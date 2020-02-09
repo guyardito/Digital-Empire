@@ -14,20 +14,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 	var window: UIWindow?
 
+	var stats = getUserData()
 
+	var gameCoordinator = GameCoordinator()
+
+	
 	func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 		// Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
 		// If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
 		// This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 		
 		// Create the SwiftUI view that provides the window contents.
-		let ads = [
-			AdData(name: "ad 2", dailySpend:3,  clickThru: 4, totalClicks: 2391),
-			AdData(name: "ad 2", dailySpend:7, clickThru: 4, totalClicks: 2391),
-			AdData(name: "ad 2", dailySpend:5,  clickThru: 4, totalClicks: 2391)
-			
-		]
-		var stats = getUserData()
 
 		let contentView = GameView(stats:stats)
 		
@@ -37,6 +34,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 			window.rootViewController = UIHostingController(rootView: contentView)
 			self.window = window
 			window.makeKeyAndVisible()
+			
+			gameCoordinator.startGame(stats: stats)
 		}
 	}
 	
