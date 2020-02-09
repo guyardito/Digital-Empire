@@ -19,43 +19,8 @@ struct GameView: View {
 	
 	var body: some View {
 		VStack {
-			/*
-			HStack {
-				Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-					Text(/*@START_MENU_TOKEN@*/"Button"/*@END_MENU_TOKEN@*/)
-				}
-				Text("Hello, World!")
 
-			}
-			
-			Spacer(minLength: CGFloat(20))
-			*/
-			HStack {
-				Text("Living Expenses: $4,300")
-				Text("Business Expenses: $2,600")
-			}
-			
-			Spacer(minLength: 20)
-			
-			HStack {
-				Spacer()
-				Text("Day: 67")
-				Spacer()
-				Text("Money: $32,800")
-				Spacer()
-			}.font(.title).foregroundColor(.red)
-
-			Spacer(minLength: CGFloat(10))
-
-
-				
-			VStack {
-				Text("Copywriting: 67")
-				Text("Tech: 67")
-				Text("Influence: 67")
-				Text("Audacity: 67")
-
-			}.font(.subheadline).foregroundColor(.purple)
+			BasicStatsView(stats: stats).frame(width: nil, height: 200, alignment: .center)
 			
 			Spacer(minLength: CGFloat(20))
 
@@ -124,9 +89,9 @@ func getUserData() -> Stats {
 	let stats = Stats()
 	
 	let ads = [
-		AdData(name: "ad 1", clickThru: 4, totalClicks: 2391),
-		AdData(name: "ad 2", clickThru: 8, totalClicks: 430),
-		AdData(name: "ad 3", clickThru: 2, totalClicks: 3096)
+		AdData(name: "ad 1", dailySpend: 5, clickThru: 4, totalClicks: 2391),
+		AdData(name: "ad 2", dailySpend: 3, clickThru: 8, totalClicks: 430),
+		AdData(name: "ad 3", dailySpend: 7, clickThru: 2, totalClicks: 3096)
 		
 	]
 	

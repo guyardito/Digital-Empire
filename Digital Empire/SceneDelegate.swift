@@ -22,9 +22,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		
 		// Create the SwiftUI view that provides the window contents.
 		let ads = [
-			AdData(name: "ad 2", clickThru: 4, totalClicks: 2391),
-			AdData(name: "ad 2", clickThru: 4, totalClicks: 2391),
-			AdData(name: "ad 2", clickThru: 4, totalClicks: 2391)
+			AdData(name: "ad 2", dailySpend:3,  clickThru: 4, totalClicks: 2391),
+			AdData(name: "ad 2", dailySpend:7, clickThru: 4, totalClicks: 2391),
+			AdData(name: "ad 2", dailySpend:5,  clickThru: 4, totalClicks: 2391)
 			
 		]
 		var stats = getUserData()

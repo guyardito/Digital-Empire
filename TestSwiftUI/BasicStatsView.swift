@@ -60,12 +60,6 @@ struct BasicStatsView: View {
 					
 				}
 				Spacer()
-			}.font(.title).foregroundColor(.purple)
-			
-			Spacer()
-			
-			HStack {
-				Spacer()
 				VStack {
 					Text("67")
 					Text("Influence").font(.caption)

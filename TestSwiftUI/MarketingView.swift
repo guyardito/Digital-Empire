@@ -11,12 +11,14 @@ import CoreGraphics
 
 class AdData {
 	@Published var name:String
+	@Published var dailySpend:Int
 	@Published var clickThru:Int
 	@Published var totalClicks:Int
 	
 	
-	init(name:String, clickThru:Int, totalClicks:Int) {
+	init(name:String, dailySpend:Int, clickThru:Int, totalClicks:Int) {
 		self.name = name
+		self.dailySpend = dailySpend
 		self.clickThru = clickThru
 		self.totalClicks = totalClicks
 	}
@@ -37,7 +39,10 @@ struct MarketingView: View {
 			Spacer(minLength: CGFloat(40))
 			HStack {
 				VStack {
-					Text("\(self.data.name)")
+					HStack {
+						Text("\(self.data.name):  ")
+						Text("$\(self.data.dailySpend)")
+					}
 					Text("\(self.data.clickThru)% click-thru")
 					Text("Total Clicks: \(self.data.totalClicks)")
 					Slider(value: $sliderValue)
@@ -62,6 +67,6 @@ struct MarketingView: View {
 
 struct MarketingView_Previews: PreviewProvider {
     static var previews: some View {
-		MarketingView( data: AdData(name: "ad 2", clickThru: 4, totalClicks: 2391))
+		MarketingView( data: AdData(name: "ad 2", dailySpend: 8, clickThru: 4, totalClicks: 2391))
     }
 }
