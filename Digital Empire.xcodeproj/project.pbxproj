@@ -94,7 +94,6 @@
 			children = (
 				674B075B23EF0DCA000210AE /* Game Mechanics.rtf */,
 				67C241B323EC983400D2CA83 /* Models */,
-				67ABE07423EC6488005A454E /* Media */,
 				67ABE07323EC646E005A454E /* VCs */,
 				674B075823EEF7FA000210AE /* Delete this stuff? */,
 				674B075523EEF675000210AE /* TestSwiftUI */,
@@ -132,13 +131,6 @@
 				67ABE06123EC63D0005A454E /* ViewController.swift */,
 			);
 			path = VCs;
-			sourceTree = "<group>";
-		};
-		67ABE07423EC6488005A454E /* Media */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Media;
 			sourceTree = "<group>";
 		};
 		67C241B323EC983400D2CA83 /* Models */ = {
