@@ -47,10 +47,12 @@ struct GameView: View {
 //					}
 			}
 			
-			ControlPanelView()
-			
-			
 			Spacer(minLength: CGFloat(20))
+			
+			ControlPanelView().frame(width: nil, height: 60, alignment: .center)
+			
+			
+			// Spacer(minLength: CGFloat(20))
 
 			
 		}
