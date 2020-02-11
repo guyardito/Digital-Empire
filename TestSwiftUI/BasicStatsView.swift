@@ -81,7 +81,7 @@ struct BasicStatsView: View {
 
 
 struct BasicStatsView_Previews: PreviewProvider {
-	static var stats = getUserData()
+	static var stats = getTestUserData()
 	
     static var previews: some View {
 		// NB this *MUST* be 'static' in order to compile!

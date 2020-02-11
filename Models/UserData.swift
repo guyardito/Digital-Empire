@@ -28,3 +28,35 @@ final class UserData : ObservableObject {
 }
 
 
+
+
+func getTestUserData() -> Stats {
+	
+	let stats = Stats()
+	
+	let ads = [
+		AdData(name: "ad 1", dailySpend: 5, clickThru: 4, totalClicks: 2391, costPerClick: 3.25),
+		AdData(name: "ad 2", dailySpend: 3, clickThru: 8, totalClicks: 430, costPerClick: 4.20),
+		AdData(name: "ad 3", dailySpend: 7, clickThru: 2, totalClicks: 3096, costPerClick: 1.75)
+		
+	]
+	
+	stats.ads = ads
+	
+	stats.money = 50000
+	
+	
+	stats.livingExpenses = [
+		LivingExpense(type: .Housing, monthlyExpense: 3000),
+		LivingExpense(type: .Food, monthlyExpense: 800),
+		LivingExpense(type: .Car, monthlyExpense: 275),
+		LivingExpense(type: .ChildCare, monthlyExpense: 1000),
+		LivingExpense(type: .Utilities, monthlyExpense: 450)
+	]
+	
+
+	
+	return stats
+}
+
+

@@ -22,6 +22,38 @@ struct Expense {
 */
 
 
+struct Capaign {
+	
+	var name:String
+	
+	var product:String
+	var productPrice:String
+	
+	var startDay:Int
+	var endDay:Int
+	
+	
+	var percentWhoPurchase:Int
+	
+	// NB this is a post-mortem number, since the user *can* change the ad spend on a DAILY basis WHILE the campaign is running
+	var adSpend:Int  // only relevant for new subscribers brought in
+}
+
+
+
+
+func computePercentWhoPurchase(stats:Stats, productPrice:Int) -> Int {
+	
+	var rv = 0
+	
+	
+	return rv
+}
+
+
+
+
+
 
 // treat these as monthly
 enum LivingExpenseType {
@@ -29,6 +61,7 @@ enum LivingExpenseType {
 	case Housing
 	case Food
 	case Car
+	case Utilities
 }
 
 
@@ -38,9 +71,6 @@ struct LivingExpense {
 	
 	var monthlyExpense:Int
 }
-
-
-
 
 
 
@@ -115,6 +145,7 @@ func defaultMonthlyAmountFor(expense:LivingExpenseType) -> Int {
 		case .Housing: return 2500
 		case .Food: return 300
 		case .Car: return 300
+		case .Utilities: return 275
 	}
 }
 

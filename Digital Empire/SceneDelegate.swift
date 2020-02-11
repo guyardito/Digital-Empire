@@ -14,7 +14,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 	var window: UIWindow?
 
-	var stats = getUserData()
+	var stats = getTestUserData()
 
 	var gameCoordinator = GameCoordinator()
 

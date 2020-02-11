@@ -86,28 +86,12 @@ struct GameView: View {
 }
 
 
-func getUserData() -> Stats {
-	
-	let stats = Stats()
-	
-	let ads = [
-		AdData(name: "ad 1", dailySpend: 5, clickThru: 4, totalClicks: 2391),
-		AdData(name: "ad 2", dailySpend: 3, clickThru: 8, totalClicks: 430),
-		AdData(name: "ad 3", dailySpend: 7, clickThru: 2, totalClicks: 3096)
-		
-	]
-	
-	stats.ads = ads
-
-	return stats
-}
-
 
 
 struct ContentView_Previews: PreviewProvider {
 	
 	// NB this *MUST* be 'static' in order to compile!
-	static var stats = getUserData()
+	static var stats = getTestUserData()
 		
 	static var previews: some View {
 
