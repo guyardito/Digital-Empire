@@ -12,7 +12,7 @@ import Foundation
 
 // NB this is a 'class' so that the callbacks from the timer can easily mutate the object
 
-class GameCoordinator {
+class GameCoordinator : ObservableObject {
 		
 	var history = [Event]()
 		
@@ -48,7 +48,7 @@ class GameCoordinator {
 		
 		// start event timer, callbac, to processTick
 		
-		timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(processTimerTick), userInfo: nil, repeats: true)
+		timer = Timer.scheduledTimer(timeInterval: 0.4, target: self, selector: #selector(processTimerTick), userInfo: nil, repeats: true)
 		
 
 	}
@@ -79,6 +79,7 @@ class GameCoordinator {
 		
 		processSpecialRewards()
 		
+		processClosures()
 		
 		stats.gameTimeInDays += 1
 	}
@@ -126,15 +127,33 @@ class GameCoordinator {
 	}
 	
 	
+	func processClosures() {
+		for ad in stats.ads {
+			if ad.dayEnded < stats.gameTimeInDays {
+				ad.isClosed = true
+			}
+		}
+		
+		for campaign in stats.campaigns {
+			if campaign.endDay < stats.gameTimeInDays {
+				campaign.isClosed = true
+			}
+		}
+	}
+	
+	
+	
 	func processLeadGeneration() {
 		for i in 0..<stats.ads.count {
-			let v = Int.random(in: 0 ... 10)
-			stats.ads[i].totalClicks += v
-			
-			stats.subscribers += Int(Double(v) * 0.3)
+			if stats.ads[i].isClosed == false {
+				let v = Int.random(in: 0 ... 10)
+				stats.ads[i].totalClicks += v
+				
+				stats.subscribers += Int(Double(v) * 0.3)
+			}
 		}
-
 	}
+	
 	
 	func processChanceCard() {
 		// see if a chance should be played

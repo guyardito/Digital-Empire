@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct ControlPanelView: View {
+	@State var isShowingCreateSheet = false
 	
 	var body: some View {
 		return VStack {
@@ -19,7 +20,29 @@ struct ControlPanelView: View {
 					Text("Blog")
 				}
 				Spacer()
+
+				Button(action: {
+					self.isShowingCreateSheet = true
+				}) {
+					Text("Create")
+				}
+				.actionSheet(isPresented: $isShowingCreateSheet) {
+					ActionSheet(title: Text("What do you want to create?"),
+								message: Text(""),
+								buttons: [
+									.default(Text("Ad")),
+									.default(Text("Lead Page")),
+									.default(Text("Lead Magnet")),
+									.default(Text("Sales Page")),
+									.default(Text("Campaign")),
+									
+									.cancel()
+					])
+				}
+
 				
+				Spacer()
+
 				Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
 					Text("Social Media")
 				}

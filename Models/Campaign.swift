@@ -21,6 +21,7 @@ class Campaign : Identifiable, ObservableObject {
 	
 	@Published var startDay:Int = 0
 	@Published var endDay:Int = 0
+	@Published var isClosed = false
 	
 	
 	@Published var percentWhoPurchase:Int = 0

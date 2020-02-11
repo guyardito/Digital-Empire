@@ -47,7 +47,7 @@ struct CampaignView: View {
 			Spacer(minLength: CGFloat(40))
 			HStack {
 
-				if isClosed {
+				if data.isClosed {
 					 mainView.foregroundColor(.gray)
 				} else {
 					 mainView

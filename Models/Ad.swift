@@ -23,6 +23,7 @@ class Ad : Identifiable, ObservableObject {
 	@Published var costPerClick:Float
 	
 	@Published var dayStarted:Int
+	@Published var dayEnded:Int
 	
 	@Published var isClosed:Bool
 	
@@ -35,6 +36,7 @@ class Ad : Identifiable, ObservableObject {
 		self.totalClicks = totalClicks
 		self.costPerClick = costPerClick
 		self.dayStarted = dayStarted
+		self.dayEnded = dayStarted + 7
 		
 		self.isClosed = false
 	}

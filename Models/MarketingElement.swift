@@ -9,6 +9,15 @@
 import Foundation
 
 
+enum MarketingItemStatus {
+	case Pending
+	case Running
+	case Ended
+}
+
+
+
+
 enum MarketingElement {
 	case Ad(ad:Ad)
 	

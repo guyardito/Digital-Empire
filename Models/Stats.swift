@@ -17,7 +17,7 @@ class Stats : ObservableObject {
 	@Published var audienceCongruence = 0
 	
 	
-	@Published var gameTimeInDays = 50
+	@Published var gameTimeInDays = 5
 
 	// skills
 	@Published var copywriting = 20

@@ -36,15 +36,11 @@ struct GameView: View {
 			List {
 				ForEach(stats.campaigns, id:\.self.name) { data in
 					CampaignView(data:data, isClosed: data.endDay < self.stats.gameTimeInDays)
+					
+					// NB  having trouble getting 'if / else' to compile within ForEach,
+					// so moved the logic to within the row's View
 				}
 				
-//				ForEach(stats.campaigns, id:\.self.name) { data in
-//					if true /* data.endDay < stats.gameTimeInDays */ {
-//						 CampaignView(data:data).foregroundColor(.gray)
-//
-//					} else {
-//						 CampaignView(data:data)
-//					}
 			}
 			
 			Spacer(minLength: CGFloat(20))
@@ -73,5 +69,7 @@ struct ContentView_Previews: PreviewProvider {
 	static var previews: some View {
 
 		GameView(stats: stats)
+			.environmentObject(stats)
+			.environmentObject(game)
 	}
 }
