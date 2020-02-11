@@ -35,13 +35,21 @@ func getTestUserData() -> Stats {
 	let stats = Stats()
 	
 	let ads = [
-		AdData(name: "ad 1", dailySpend: 5, clickThru: 4, totalClicks: 2391, costPerClick: 3.25),
-		AdData(name: "ad 2", dailySpend: 3, clickThru: 8, totalClicks: 430, costPerClick: 4.20),
-		AdData(name: "ad 3", dailySpend: 7, clickThru: 2, totalClicks: 3096, costPerClick: 1.75)
+		Ad(name: "ad 1", dailySpend: 5, clickThru: 4, totalClicks: 2391, costPerClick: 3.25, dayStarted: 5),
+		Ad(name: "ad 2", dailySpend: 3, clickThru: 8, totalClicks: 430, costPerClick: 4.20, dayStarted: 20),
+		Ad(name: "ad 3", dailySpend: 7, clickThru: 2, totalClicks: 3096, costPerClick: 1.75, dayStarted: 30)
 		
 	]
-	
 	stats.ads = ads
+	stats.ads[1].isClosed = true
+	
+	let campaigns:[Campaign] = [
+		Campaign(name: "cmpn 1", product: "Sell Your Soul", price: 499, startDay: 10, endDay: 17, percent: 2, adSpend: 500),
+		Campaign(name: "cmpn 2", product: "Sell Your Soul", price: 299, startDay: 70, endDay: 77, percent: 4, adSpend: 500)
+
+	]
+	stats.campaigns = campaigns
+	
 	
 	stats.money = 50000
 	

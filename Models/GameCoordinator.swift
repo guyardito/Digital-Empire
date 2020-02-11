@@ -27,11 +27,18 @@ class GameCoordinator {
 	var timer : Timer?
 	
 	
-/*
+
+	init() {
+		
+	}
+	
+	
 	init(stats:Stats) {
 		self.stats = stats
+		
+		startGame(stats: self.stats)
 	}
-	*/
+	
 	
 	
 	func startGame(stats:Stats) {
@@ -53,13 +60,6 @@ class GameCoordinator {
 		
 		//decrement timeLeft for any current tasks
 		
-		let v = Int.random(in: 0 ... 10)
-		let i = Bool.random()
-		if i {
-			stats.ads[1].totalClicks += v
-		} else {
-			stats.ads[1].totalClicks -= v
-		}
 		
 		processItemCreation()
 		
@@ -68,6 +68,8 @@ class GameCoordinator {
 		if stats.gameTimeInDays % 30 == 0 {
 			processMonthlyExpenses()
 		}
+		
+		processLeadGeneration()
 		
 		
 		// will there be a "chance card"
@@ -100,6 +102,10 @@ class GameCoordinator {
 			
 			stats.money -= e
 		}
+		
+		for ad in stats.ads {
+			stats.money -= ad.dailySpend
+		}
 
 	}
 	
@@ -120,6 +126,15 @@ class GameCoordinator {
 	}
 	
 	
+	func processLeadGeneration() {
+		for i in 0..<stats.ads.count {
+			let v = Int.random(in: 0 ... 10)
+			stats.ads[i].totalClicks += v
+			
+			stats.subscribers += Int(Double(v) * 0.3)
+		}
+
+	}
 	
 	func processChanceCard() {
 		// see if a chance should be played

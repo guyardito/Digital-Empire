@@ -14,15 +14,14 @@ import CoreGraphics
 
 struct AdView: View {
 	
-	@State var sliderValue = 20.0
+	@State var isClosed = false
 
-	@ObservedObject var data:AdData
+	@ObservedObject var data:Ad
 
 	
 	var body: some View {
 		
-		HStack {
-			Spacer(minLength: CGFloat(40))
+		let mainView = HStack {
 			HStack {
 				VStack {
 					HStack {
@@ -49,11 +48,23 @@ struct AdView: View {
 			}
 			
 		}
+		
+		return HStack {
+			Spacer(minLength: CGFloat(40))
+			
+			if data.isClosed {
+				mainView.foregroundColor(.gray)
+				
+			} else {
+				mainView
+				
+			}
+		}
 	}
 }
 
-struct MarketingView_Previews: PreviewProvider {
+struct AdView_Previews: PreviewProvider {
     static var previews: some View {
-		AdView( data: AdData(name: "ad 6", dailySpend: 8, clickThru: 4, totalClicks: 2391, costPerClick: 7.25, dayStarted: 15))
+		AdView( data: Ad(name: "ad 6", dailySpend: 8, clickThru: 4, totalClicks: 2391, costPerClick: 7.25, dayStarted: 15))
     }
 }

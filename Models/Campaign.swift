@@ -12,7 +12,8 @@ import Foundation
 
 
 class Campaign : Identifiable, ObservableObject {
-	
+	var id:Int
+
 	@Published var name:String = ""
 	
 	@Published var product:String = ""
@@ -32,6 +33,8 @@ class Campaign : Identifiable, ObservableObject {
 	
 	
 	init(name:String, product:String, price:Int, startDay:Int, endDay:Int, percent:Int, adSpend:Int) {
+		self.id = name.hashValue
+
 		self.name = name
 		self.product = product
 		self.productPrice = price

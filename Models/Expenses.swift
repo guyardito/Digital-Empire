@@ -22,36 +22,6 @@ struct Expense {
 */
 
 
-struct Capaign {
-	
-	var name:String
-	
-	var product:String
-	var productPrice:String
-	
-	var startDay:Int
-	var endDay:Int
-	
-	
-	var percentWhoPurchase:Int
-	
-	// NB this is a post-mortem number, since the user *can* change the ad spend on a DAILY basis WHILE the campaign is running
-	var adSpend:Int  // only relevant for new subscribers brought in
-}
-
-
-
-
-func computePercentWhoPurchase(stats:Stats, productPrice:Int) -> Int {
-	
-	var rv = 0
-	
-	
-	return rv
-}
-
-
-
 
 
 

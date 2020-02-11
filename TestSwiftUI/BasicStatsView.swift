@@ -19,15 +19,53 @@ struct BasicStatsView: View {
 	var body: some View {
 		VStack {
 			
+//			HStack {
+//				Text("Living Expenses: $4,300")
+//				Text("Business Expenses: $2,600")
+//			}
+			Spacer()
 			HStack {
-				Text("Living Expenses: $4,300")
-				Text("Business Expenses: $2,600")
-			}
+				Spacer()
+				VStack {
+					Text("\(stats.aggregateEngagement)")
+					Text("Engagement").font(.caption)
+					
+				}
+				Spacer()
+				VStack {
+					Text("\(stats.audienceCongruence)")
+					Text("Congruence").font(.caption)
+					
+				}
+				Spacer()
+			}.foregroundColor(.gray)
+
+
 			
 			Spacer(minLength: 20)
 			
 			HStack {
 				Spacer()
+				VStack {
+					Text("\(stats.followers)")
+					Text("Followers").font(.caption)
+					
+				}
+				Spacer()
+				VStack {
+					Text("\(stats.subscribers)")
+					Text("Subscribers").font(.caption)
+					
+				}
+				Spacer()
+			}.font(.title).foregroundColor(.blue)
+
+			
+			Spacer(minLength: 20)
+			
+			HStack {
+				Spacer()
+				
 				VStack {
 					Text("\(stats.gameTimeInDays)")
 					Text("Day").font(.caption)
@@ -35,10 +73,17 @@ struct BasicStatsView: View {
 				}
 				Spacer()
 				VStack {
-					Text("$32,800")
+					Text("\(stats.money)")
 					Text("Money").font(.caption)
 					
 				}
+				Spacer()
+				VStack {
+					Text("\(stats.powerUpPoints)")
+					Text("Power Points").font(.caption)
+					
+				}
+
 				Spacer()
 			}.font(.title).foregroundColor(.red)
 			
@@ -48,25 +93,25 @@ struct BasicStatsView: View {
 			HStack {
 				Spacer()
 				VStack {
-					Text("67")
+					Text("\(stats.copywriting)")
 					Text("Copywriting").font(.caption)
 					
 				}
 				Spacer()
 				VStack {
-					Text("53")
+					Text("\(stats.tech)")
 					Text("Tech").font(.caption)
 					
 				}
 				Spacer()
 				VStack {
-					Text("67")
+					Text("\(stats.influence)")
 					Text("Influence").font(.caption)
 					
 				}
 				Spacer()
 				VStack {
-					Text("53")
+					Text("\(stats.audacity)")
 					Text("Audacity").font(.caption)
 					
 				}

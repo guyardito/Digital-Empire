@@ -12,7 +12,7 @@ import Foundation
 
 
 
-class AdData : Identifiable, ObservableObject {
+class Ad : Identifiable, ObservableObject {
 	var id:Int
 	
 	@Published var name:String
@@ -22,14 +22,21 @@ class AdData : Identifiable, ObservableObject {
 	
 	@Published var costPerClick:Float
 	
+	@Published var dayStarted:Int
 	
-	init(name:String, dailySpend:Int, clickThru:Int, totalClicks:Int, costPerClick:Float) {
+	@Published var isClosed:Bool
+	
+	
+	init(name:String, dailySpend:Int, clickThru:Int, totalClicks:Int, costPerClick:Float, dayStarted:Int) {
 		self.id = name.hashValue
 		self.name = name
 		self.dailySpend = dailySpend
 		self.clickThru = clickThru
 		self.totalClicks = totalClicks
 		self.costPerClick = costPerClick
+		self.dayStarted = dayStarted
+		
+		self.isClosed = false
 	}
 }
 

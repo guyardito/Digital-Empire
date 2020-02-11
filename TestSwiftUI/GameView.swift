@@ -19,67 +19,39 @@ struct GameView: View {
 	var body: some View {
 		VStack {
 
-			BasicStatsView(stats: stats).frame(width: nil, height: 200, alignment: .center)
+			BasicStatsView(stats: stats).frame(width: nil, height: CGFloat(200), alignment: .center)
 			
-			Spacer(minLength: CGFloat(20))
+			Spacer(minLength: CGFloat(60))
 
-			
+			// ads
 			List {
 				ForEach(stats.ads, id:\.self.name) { data in
-					MarketingView(data:data)
+					AdView(data:data)
 				}
 			}
 			
+			Spacer(minLength: CGFloat(40))
 			
-			
-			HStack {
-				Spacer()
-				
-				Button(action: {
-					print("hey")
-					//self.stats.ads[0].objectWillChange.send()
-					self.stats.ads[0].clickThru += 1 }) {
-					Text("Build")
-						//
+			// campaigns
+			List {
+				ForEach(stats.campaigns, id:\.self.name) { data in
+					CampaignView(data:data, isClosed: data.endDay < self.stats.gameTimeInDays)
 				}
-				Spacer()
 				
-				Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-					Text("Publish")
-						// sales page
-						// blog post
-				}
-				Spacer()
-				
-				Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-					Text("Run")
-						// advertisement
-						// post
-						
-				}
-				Spacer()
-				
+//				ForEach(stats.campaigns, id:\.self.name) { data in
+//					if true /* data.endDay < stats.gameTimeInDays */ {
+//						 CampaignView(data:data).foregroundColor(.gray)
+//
+//					} else {
+//						 CampaignView(data:data)
+//					}
 			}
+			
+			ControlPanelView()
+			
+			
 			Spacer(minLength: CGFloat(20))
-			HStack {
-				Spacer()
-				
-				Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-					Text("Chance Card")
-				}
-				Spacer()
 
-				Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-					Text("???")
-				}
-				Spacer()
-
-				Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-					Text("Power-up")
-				}
-				Spacer()
-
-			}
 			
 		}
 	}
@@ -87,12 +59,15 @@ struct GameView: View {
 
 
 
+var game = GameCoordinator(stats: getTestUserData() )
+
 
 struct ContentView_Previews: PreviewProvider {
 	
 	// NB this *MUST* be 'static' in order to compile!
 	static var stats = getTestUserData()
-		
+	
+	
 	static var previews: some View {
 
 		GameView(stats: stats)

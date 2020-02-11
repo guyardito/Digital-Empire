@@ -10,57 +10,52 @@ import SwiftUI
 
 
 
-/*
-struct Campaign {
-	
-	var name:String
-	
-	var product:String
-	var productPrice:String
-	
-	var startDay:Int
-	var endDay:Int
-	
-	
-	var percentWhoPurchase:Int
-	
-	// NB this is a post-mortem number, since the user *can* change the ad spend on a DAILY basis WHILE the campaign is running
-	var adSpend:Int  // only relevant for new subscribers brought in
-}
-*/
 
 
 struct CampaignView: View {
 	
 	@ObservedObject var data:Campaign
 	
+	@State var isClosed = false
 	
 	var body: some View {
 		
-		HStack {
+		let mainView = VStack {
+			HStack {
+				Text("\(self.data.name):  ")
+				Spacer()
+				Text("start: \(self.data.startDay)")
+				Spacer()
+				Text("end: \(self.data.endDay)")
+			}
+			HStack {
+				Text("\(self.data.percentWhoPurchase)% purchasing")
+				Spacer()
+				Text("Total adSpend: $\(self.data.adSpend)")
+			}
+			HStack {
+				Text("Revenue: $\(self.data.revenue)")
+				Spacer()
+				Text("Profit: $\(self.data.profit)").bold()
+			}
+			//.foregroundColor(.green)
+		}
+	
+		
+		
+		return HStack {
 			Spacer(minLength: CGFloat(40))
 			HStack {
-				VStack {
-					HStack {
-						Text("\(self.data.name):  ")
-						Spacer()
-						Text("start: \(self.data.startDay)")
-						Spacer()
-						Text("end: \(self.data.endDay)")
-					}
-					HStack {
-						Text("\(self.data.percentWhoPurchase)% purchasing")
-						Spacer()
-						Text("Total adSpend: $\(self.data.adSpend)")
-					}
-					HStack {
-						Text("Revenue: $\(self.data.revenue)")
-						Spacer()
-						Text("Profit: $\(self.data.profit)").bold()
-					}.foregroundColor(.green)
+
+				if isClosed {
+					 mainView.foregroundColor(.gray)
+				} else {
+					 mainView
 				}
 				Spacer(minLength: CGFloat(40.0))
 			}
+
+			
 //			VStack {
 //				Spacer()
 //				Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
@@ -83,7 +78,7 @@ struct CampaignView_Previews: PreviewProvider {
 
 	
     static var previews: some View {
-		
-		CampaignView(data:cpn)
+
+		CampaignView(data:cpn, isClosed:true)
     }
 }
