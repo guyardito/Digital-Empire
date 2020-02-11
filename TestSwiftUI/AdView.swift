@@ -12,7 +12,7 @@ import CoreGraphics
 
 
 
-struct MarketingView: View {
+struct AdView: View {
 	
 	@State var sliderValue = 20.0
 
@@ -26,12 +26,13 @@ struct MarketingView: View {
 			HStack {
 				VStack {
 					HStack {
-						Text("\(self.data.name):  ")
-						Text("$\(self.data.dailySpend)")
+						Text("\(self.data.name): ")
+						Text("started: \(self.data.dayStarted)")
+						Text("daily: $\(self.data.dailySpend)")
 					}
-					Text("\(self.data.clickThru)% click-thru")
-					Text("Total Clicks: \(self.data.totalClicks)")
-					Slider(value: $sliderValue)
+					Text("\(self.data.clickThru)% click-thru  Total: \(self.data.totalClicks)")
+					//Text("Total Clicks: \(self.data.totalClicks)")
+					//Slider(value: $sliderValue)
 				}
 				Spacer(minLength: CGFloat(40.0))
 			}
@@ -40,10 +41,10 @@ struct MarketingView: View {
 				Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
 					Text("Pause")
 				}.buttonStyle(DefaultButtonStyle())
-				Spacer()
-				Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-					Text("Cancel")
-				}.buttonStyle(DefaultButtonStyle())
+//				Spacer()
+//				Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+//					Text("Cancel")
+//				}.buttonStyle(DefaultButtonStyle())
 				Spacer()
 			}
 			
@@ -53,6 +54,6 @@ struct MarketingView: View {
 
 struct MarketingView_Previews: PreviewProvider {
     static var previews: some View {
-		MarketingView( data: AdData(name: "ad 6", dailySpend: 8, clickThru: 4, totalClicks: 2391, costPerClick: 7.25))
+		AdView( data: AdData(name: "ad 6", dailySpend: 8, clickThru: 4, totalClicks: 2391, costPerClick: 7.25, dayStarted: 15))
     }
 }

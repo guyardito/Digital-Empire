@@ -10,9 +10,10 @@
 		67254A4223F2F4540075382C /* CampaignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67254A4123F2F4540075382C /* CampaignView.swift */; };
 		67254A4423F2FA2E0075382C /* Ad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67254A4323F2FA2E0075382C /* Ad.swift */; };
 		67254A4623F2FA4E0075382C /* Campaign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67254A4523F2FA4E0075382C /* Campaign.swift */; };
+		67254A4823F2FB350075382C /* MarketingElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67254A4723F2FB350075382C /* MarketingElement.swift */; };
 		674B073423ED0561000210AE /* Expenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674B073323ED0561000210AE /* Expenses.swift */; };
 		674B075723EEF699000210AE /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674B075623EEF699000210AE /* GameView.swift */; };
-		674B075A23EEFD6E000210AE /* MarketingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674B075923EEFD6E000210AE /* MarketingView.swift */; };
+		674B075A23EEFD6E000210AE /* AdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674B075923EEFD6E000210AE /* AdView.swift */; };
 		674B075C23EF0DCA000210AE /* Game Mechanics.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 674B075B23EF0DCA000210AE /* Game Mechanics.rtf */; };
 		674B075E23EF3C2B000210AE /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674B075D23EF3C2B000210AE /* UserData.swift */; };
 		674B076123EF3D5E000210AE /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 674B076023EF3D5E000210AE /* SwiftUI.framework */; };
@@ -34,9 +35,10 @@
 		67254A4123F2F4540075382C /* CampaignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignView.swift; sourceTree = "<group>"; };
 		67254A4323F2FA2E0075382C /* Ad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ad.swift; sourceTree = "<group>"; };
 		67254A4523F2FA4E0075382C /* Campaign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Campaign.swift; sourceTree = "<group>"; };
+		67254A4723F2FB350075382C /* MarketingElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketingElement.swift; sourceTree = "<group>"; };
 		674B073323ED0561000210AE /* Expenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expenses.swift; sourceTree = "<group>"; };
 		674B075623EEF699000210AE /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
-		674B075923EEFD6E000210AE /* MarketingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketingView.swift; sourceTree = "<group>"; };
+		674B075923EEFD6E000210AE /* AdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdView.swift; sourceTree = "<group>"; };
 		674B075B23EF0DCA000210AE /* Game Mechanics.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "Game Mechanics.rtf"; sourceTree = "<group>"; };
 		674B075D23EF3C2B000210AE /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		674B076023EF3D5E000210AE /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/SwiftUI.framework; sourceTree = DEVELOPER_DIR; };
@@ -73,9 +75,9 @@
 			isa = PBXGroup;
 			children = (
 				674B075623EEF699000210AE /* GameView.swift */,
-				674B075923EEFD6E000210AE /* MarketingView.swift */,
-				67BDABEF23EF9625006B9702 /* BasicStatsView.swift */,
+				674B075923EEFD6E000210AE /* AdView.swift */,
 				67254A4123F2F4540075382C /* CampaignView.swift */,
+				67BDABEF23EF9625006B9702 /* BasicStatsView.swift */,
 			);
 			path = TestSwiftUI;
 			sourceTree = "<group>";
@@ -144,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				67C241B423EC984700D2CA83 /* GameCoordinator.swift */,
+				67254A4723F2FB350075382C /* MarketingElement.swift */,
 				67254A4323F2FA2E0075382C /* Ad.swift */,
 				67254A4523F2FA4E0075382C /* Campaign.swift */,
 				67C241B623EC986700D2CA83 /* Stats.swift */,
@@ -237,7 +240,8 @@
 				674B075E23EF3C2B000210AE /* UserData.swift in Sources */,
 				67254A4423F2FA2E0075382C /* Ad.swift in Sources */,
 				67254A4623F2FA4E0075382C /* Campaign.swift in Sources */,
-				674B075A23EEFD6E000210AE /* MarketingView.swift in Sources */,
+				674B075A23EEFD6E000210AE /* AdView.swift in Sources */,
+				67254A4823F2FB350075382C /* MarketingElement.swift in Sources */,
 				674B075723EEF699000210AE /* GameView.swift in Sources */,
 				674B073423ED0561000210AE /* Expenses.swift in Sources */,
 				67BDABF023EF9625006B9702 /* BasicStatsView.swift in Sources */,
