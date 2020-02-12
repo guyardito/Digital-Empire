@@ -14,9 +14,10 @@ import CoreGraphics
 
 struct AdView: View {
 	
-	@State var isClosed = false
-
 	@ObservedObject var data:Ad
+
+
+	//@EnvironmentObject var game:GameCoordinator
 
 	
 	var body: some View {
@@ -26,7 +27,8 @@ struct AdView: View {
 				VStack {
 					HStack {
 						Text("\(self.data.name): ")
-						Text("started: \(self.data.dayStarted)")
+						Text("start: \(self.data.dayStarted)")
+						Text("end: \(self.data.dayEnded)")
 						Text("daily: $\(self.data.dailySpend)")
 					}
 					Text("\(self.data.clickThru)% click-thru  Total: \(self.data.totalClicks)")

@@ -31,7 +31,7 @@ struct GameView: View {
 			// ads
 			List {
 				ForEach(stats.ads, id:\.self.name) { data in
-					AdView(data:data)
+					AdView(data:data )
 				}
 			}
 			
@@ -40,7 +40,7 @@ struct GameView: View {
 			// campaigns
 			List {
 				ForEach(stats.campaigns, id:\.self.name) { data in
-					CampaignView(data:data, isClosed: data.endDay < self.stats.gameTimeInDays)
+					CampaignView(data:data)
 					
 					// NB  having trouble getting 'if / else' to compile within ForEach,
 					// so moved the logic to within the row's View
@@ -50,7 +50,7 @@ struct GameView: View {
 			
 			Spacer(minLength: CGFloat(20))
 			
-			ControlPanelView().frame(width: nil, height: 60, alignment: .center)
+			ControlPanelView().frame(width: nil, height: CGFloat(60), alignment: .center)
 			
 			
 			// Spacer(minLength: CGFloat(20))

@@ -127,15 +127,21 @@ class GameCoordinator : ObservableObject {
 	}
 	
 	
+	
 	func processClosures() {
+
 		for ad in stats.ads {
-			if ad.dayEnded < stats.gameTimeInDays {
+			if stats.gameTimeInDays > ad.dayStarted   &&  stats.gameTimeInDays < ad.dayEnded  {
+				ad.isClosed = false
+			} else {
 				ad.isClosed = true
 			}
 		}
 		
 		for campaign in stats.campaigns {
-			if campaign.endDay < stats.gameTimeInDays {
+			if stats.gameTimeInDays > campaign.startDay  &&  stats.gameTimeInDays < campaign.endDay  {
+				campaign.isClosed = false
+			} else {
 				campaign.isClosed = true
 			}
 		}

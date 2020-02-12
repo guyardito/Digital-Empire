@@ -15,9 +15,7 @@ import SwiftUI
 struct CampaignView: View {
 	
 	@ObservedObject var data:Campaign
-	
-	@State var isClosed = false
-	
+		
 	var body: some View {
 		
 		let mainView = VStack {
@@ -79,6 +77,6 @@ struct CampaignView_Previews: PreviewProvider {
 	
     static var previews: some View {
 
-		CampaignView(data:cpn, isClosed:true)
+		CampaignView(data:cpn)
     }
 }
