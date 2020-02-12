@@ -39,7 +39,7 @@
 		67254A4323F2FA2E0075382C /* Ad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ad.swift; sourceTree = "<group>"; };
 		67254A4523F2FA4E0075382C /* Campaign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Campaign.swift; sourceTree = "<group>"; };
 		67254A4723F2FB350075382C /* MarketingElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketingElement.swift; sourceTree = "<group>"; };
-		6738CD6723F3307200D23653 /* ControlPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlPanelView.swift; sourceTree = "<group>"; };
+		6738CD6723F3307200D23653 /* ControlPanelView.swift */ = {isa = PBXFileReference; indentWidth = 3; lastKnownFileType = sourcecode.swift; path = ControlPanelView.swift; sourceTree = "<group>"; tabWidth = 4; };
 		6738CD6923F35E3500D23653 /* OutsourceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutsourceView.swift; sourceTree = "<group>"; };
 		6738CD6B23F35E4D00D23653 /* Outsource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Outsource.swift; sourceTree = "<group>"; };
 		674B073323ED0561000210AE /* Expenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expenses.swift; sourceTree = "<group>"; };
