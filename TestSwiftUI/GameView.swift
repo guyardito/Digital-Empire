@@ -24,7 +24,7 @@ struct GameView: View {
 			Spacer(minLength: CGFloat(60))
 
 			if stats.showOutsourcers {
-				OutsourceView()
+				OutsourceView(stats:stats)
 					.transition(.move(edge: .bottom))
 			} 
 			

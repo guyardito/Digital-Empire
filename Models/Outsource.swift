@@ -7,3 +7,43 @@
 //
 
 import Foundation
+
+protocol OutsourcingResource {
+	
+	var quality:Int { get set }
+	
+	var isActive:Bool { get }
+}
+
+
+
+class MarketingAgency : ObservableObject, OutsourcingResource {
+	@Published var quality:Int = 0
+
+	@Published var isActive = false
+}
+
+
+class SocialMediaHelp : ObservableObject, OutsourcingResource {
+	@Published var quality:Int = 0
+	
+	@Published var isActive = false
+}
+
+
+class Copywriter : ObservableObject, OutsourcingResource {
+	@Published var quality:Int = 0
+	
+	@Published var isActive = false
+}
+
+
+
+
+enum Outsource {
+	case MarketingAgency( marketingAgency: MarketingAgency)
+	case SocialMediaHelp( socialMediaHelp: SocialMediaHelp)
+	case Copywriter( copywriter:Copywriter)
+}
+
+
