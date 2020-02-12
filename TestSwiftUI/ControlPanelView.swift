@@ -13,6 +13,44 @@ struct ControlPanelView: View {
 	@State var isShowingPowerupSheet = false
 	
 	@EnvironmentObject var stats : Stats
+	@EnvironmentObject var game : GameCoordinator
+	
+	
+	let createActionSheetView =
+		ActionSheet(
+			title: Text("What do you want to create?"),
+			message: Text(""),
+			buttons: [
+				.default(Text("Ad"), action: {   } ),
+				.default(Text("Lead Campaign"), action: {   } ),
+				.default(Text("Sales Page"), action: {   } ),
+				.default(Text("Sales Campaign"), action: {   } ),
+				.default(Text("Adjust Branding"), action: {   } ),
+				.default(Text("Hire Marketing Agency"), action: {   } ),
+				.default(Text("Hire Social Media Manager"), action: {   } ),
+				.default(Text("Hire Marketing Agency"), action: {   } ),
+				
+				.cancel()
+		] )
+	
+	
+	
+	let powerUpActionSheetView =
+		ActionSheet(
+			title: Text("What do you want to power up?"),
+			message: Text(""),
+			buttons: [
+				.default(Text("Copywriting"), action: {   } ),
+				.default(Text("Tech"), action: {   } ),
+				.default(Text("Influence"), action: {   } ),
+				.default(Text("Audacity"), action: {   } ),
+				
+				.cancel()
+				//.destructive(Text("Cancel"))
+		] )
+
+	
+	
 	
 	
 	var body: some View {
@@ -33,18 +71,7 @@ struct ControlPanelView: View {
 					Text("Create")
 				}
 				.actionSheet(isPresented: $isShowingCreateSheet) {
-					ActionSheet(title: Text("What do you want to create?"),
-								message: Text(""),
-								buttons: [
-									.default(Text("Ad")),
-									.default(Text("Lead Campaign")),
-									.default(Text("Sales Page")),
-									.default(Text("Sales Campaign")),
-									.default(Text("Adjust Branding")),
-									.default(Text("Hire Marketing Agency")),
-									
-									.cancel()
-					] )
+					createActionSheetView
 				}
 
 				
@@ -64,6 +91,7 @@ struct ControlPanelView: View {
 				Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
 					Text("Chance Card")
 				}
+				
 				Spacer()
 				
 				Button(action:  {
@@ -73,6 +101,7 @@ struct ControlPanelView: View {
 				}) {
 					Text("???")
 				}
+				
 				Spacer()
 				
 				Button(action: {
@@ -81,18 +110,9 @@ struct ControlPanelView: View {
 					Text("Power-up")
 				}
 				.actionSheet(isPresented: $isShowingPowerupSheet) {
-					ActionSheet(title: Text("What do you want to power up?"),
-								message: Text(""),
-								buttons: [
-									.default(Text("Copywriting"), action: {   } ),
-									.default(Text("Tech"), action: {   } ),
-									.default(Text("Influence"), action: {   } ),
-									.default(Text("Audacity"), action: {   } ),
-									
-									.cancel()
-									//.destructive(Text("Cancel"))
-					] )
+					powerUpActionSheetView
 				}
+				
 				Spacer()
 				
 			}
