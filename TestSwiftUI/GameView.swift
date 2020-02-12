@@ -23,6 +23,11 @@ struct GameView: View {
 			
 			Spacer(minLength: CGFloat(60))
 
+			if stats.showOutsourcers {
+				OutsourceView()
+					.transition(.move(edge: .bottom))
+			} 
+			
 			// ads
 			List {
 				ForEach(stats.ads, id:\.self.name) { data in

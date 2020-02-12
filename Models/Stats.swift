@@ -34,6 +34,7 @@ class Stats : ObservableObject {
 	@Published var subscribers = 0
 	@Published var followers = 0
 	
+	@Published var showOutsourcers = false
 	
 	
 	
