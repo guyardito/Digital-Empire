@@ -29,15 +29,15 @@ class GameCoordinator : ObservableObject {
 	
 
 	init() {
-		
 	}
 	
 	
 	init(stats:Stats) {
 		self.stats = stats
 		
-		startGame(stats: self.stats)
+		//startGame(stats: self.stats)
 	}
+	
 	
 	
 	
@@ -47,9 +47,13 @@ class GameCoordinator : ObservableObject {
 		gameShouldEndOnNextTick = false
 		
 		// start event timer, callbac, to processTick
-		
-		timer = Timer.scheduledTimer(timeInterval: 0.4, target: self, selector: #selector(processTimerTick), userInfo: nil, repeats: true)
-		
+		DispatchQueue.main.async {
+
+			self.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
+				print("tick")
+				self!.processTimerTick()
+			}
+		}
 
 	}
 	
@@ -59,7 +63,6 @@ class GameCoordinator : ObservableObject {
 	@objc func processTimerTick() {
 		
 		//decrement timeLeft for any current tasks
-		
 		
 		processItemCreation()
 		
@@ -85,11 +88,14 @@ class GameCoordinator : ObservableObject {
 	}
 	
 	
+	
 	func processItemCreation() {
-		for (idx, item) in stats.createdItems.enumerated() {
-			stats.createdItems[idx].timeLeftTillCreated -= 1
-			
-		}
+		
+//		for (idx, item) in stats.createdItems.enumerated() {
+//			stats.createdItems[idx].timeLeftTillCreated -= 1
+//			
+//		}
+		
 	}
 	
 	
@@ -131,7 +137,7 @@ class GameCoordinator : ObservableObject {
 	func processClosures() {
 
 		for ad in stats.ads {
-			if stats.gameTimeInDays > ad.dayStarted   &&  stats.gameTimeInDays < ad.dayEnded  {
+			if stats.gameTimeInDays >= ad.dayStarted   &&  stats.gameTimeInDays <= ad.dayEnded  {
 				ad.isClosed = false
 			} else {
 				ad.isClosed = true
@@ -139,7 +145,7 @@ class GameCoordinator : ObservableObject {
 		}
 		
 		for campaign in stats.campaigns {
-			if stats.gameTimeInDays > campaign.startDay  &&  stats.gameTimeInDays < campaign.endDay  {
+			if stats.gameTimeInDays >= campaign.startDay  &&  stats.gameTimeInDays <= campaign.endDay  {
 				campaign.isClosed = false
 			} else {
 				campaign.isClosed = true
@@ -222,6 +228,21 @@ class GameCoordinator : ObservableObject {
 	}
 	
 	
+	
+	
+	func createAd() {
+		let name = "ad_\(stats.ads.count+1)"
+		
+		let costPerClick = computeCostPerClick(stats: stats)
+		
+		let timeToImplement = computeTimeToCreate(stats: stats)
+		
+		let startDay = stats.gameTimeInDays + timeToImplement
+		
+		let ad = Ad(name: name, dailySpend: 5, clickThru: 0, totalClicks: 0, costPerClick: costPerClick, dayStarted: startDay)
+		
+		stats.ads.insert(ad, at: 0)
+	}
 	
 
 }
