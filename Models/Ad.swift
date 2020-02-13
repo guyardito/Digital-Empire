@@ -14,6 +14,8 @@ import Foundation
 
 class Ad : Identifiable, ObservableObject, CreatableItem  {
 
+
+	
 	var id:Int
 	
 	@Published var status: CreatableItemStatus = .Building
@@ -44,7 +46,7 @@ class Ad : Identifiable, ObservableObject, CreatableItem  {
 		self.dayStarted = dayStarted
 		self.dayEnded = dayStarted + 7
 		
-		self.isClosed = false
+		self.isClosed = true
 	}
 }
 
@@ -74,6 +76,34 @@ func computeCostPerClick(stats:Stats) -> Float {
 	
 	return Float(rv)
 	
+}
+
+
+
+extension Ad {
+	func getStatus() -> CreatableItemStatus {
+		return status
+	}
+	
+	func setStatus(arg: CreatableItemStatus) {
+		status = arg
+	}
+	
+	func getDayStarted() -> Int {
+		return dayStarted
+	}
+	
+	func setDayStarted(arg: Int) {
+		dayStarted = arg
+	}
+	
+	func getDaysToCreate() -> Int {
+		return daysToCreate
+	}
+	
+	func setDaysToCreate(arg: Int) {
+		daysToCreate = arg
+	}
 }
 
 

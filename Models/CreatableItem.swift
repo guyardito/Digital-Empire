@@ -19,6 +19,7 @@ enum CreatableItemStatus {
 
 protocol CreatableItem {
 	
+	/*
 	var status:CreatableItemStatus { get set }
 	
 	//var type:CreatableItemType { get set }
@@ -27,6 +28,20 @@ protocol CreatableItem {
 	var daysToCreate:Int { get set }
 	
 	var dayStarted:Int { get }
+	//func dayStarted() -> Int
+	*/
+	
+	
+	func getStatus() -> CreatableItemStatus
+	func setStatus(arg:CreatableItemStatus)
+	
+	func getDayStarted() -> Int
+	func setDayStarted(arg:Int)
+	
+	func getDaysToCreate() -> Int
+	func setDaysToCreate(arg:Int)
+	
+
 }
 
 // NB!  displaying any variable which is included in the protocol causes SwiftUI to completely hang up !!!
@@ -34,7 +49,7 @@ protocol CreatableItem {
 
 
 enum CreatableItemType {
-	case Ad
+	case Ad(ad: Ad)
 	case BlogPost
 	case Freebie
 	case Course
