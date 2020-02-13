@@ -26,8 +26,10 @@ protocol CreatableItem {
 	
 	var daysToCreate:Int { get set }
 	
-	var dayStarted:Int { get set }
+	var dayStarted:Int { get }
 }
+
+// NB!  displaying any variable which is included in the protocol causes SwiftUI to completely hang up !!!
 
 
 
