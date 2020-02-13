@@ -12,8 +12,14 @@ import Foundation
 
 
 
-class Ad : Identifiable, ObservableObject {
+class Ad : Identifiable, ObservableObject, CreatableItem  {
+
 	var id:Int
+	
+	@Published var status: CreatableItemStatus = .Building
+	
+	@Published var daysToCreate: Int = 0
+	
 	
 	@Published var name:String
 	@Published var dailySpend:Int
@@ -44,6 +50,35 @@ class Ad : Identifiable, ObservableObject {
 
 
 
+func computeTimeToCreate(stats:Stats) -> Int {
+	var rv = 1.0
+	
+	rv = Double(100) / Double(stats.tech)   +  Double(100) / Double(stats.audacity)
+	
+	return Int(rv)
+}
+
+
+
+func computeCostPerClick(stats:Stats) -> Float {
+	
+	var rv = 1.25
+	
+	let effectivenssFactor = Double(100) / Double(stats.copywriting)
+	
+	rv = rv * effectivenssFactor
+	
+	let random = Double.random(in: 0.7...1.3)
+	
+	rv = rv * random
+	
+	return Float(rv)
+	
+}
+
+
+
+/*
 func computeCostPerClick(stats:Stats) -> Double {
 	//let = stat.numberOfAdsCreated
 	
@@ -92,7 +127,7 @@ func computeCostPerClick(stats:Stats) -> Double {
 	
 	return cost
 }
-
+*/
 
 
 
