@@ -15,6 +15,8 @@
 		6738CD6A23F35E3500D23653 /* OutsourceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6738CD6923F35E3500D23653 /* OutsourceView.swift */; };
 		6738CD6C23F35E4D00D23653 /* Outsource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6738CD6B23F35E4D00D23653 /* Outsource.swift */; };
 		6738CD7023F475CF00D23653 /* CreatableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6738CD6F23F475CF00D23653 /* CreatableItem.swift */; };
+		674A39F323F5C1D400BE6FC9 /* CreatableItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674A39F223F5C1D400BE6FC9 /* CreatableItemView.swift */; };
+		674A39F523F5CAC200BE6FC9 /* CreatableItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674A39F423F5CAC200BE6FC9 /* CreatableItemList.swift */; };
 		674B073423ED0561000210AE /* Expenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674B073323ED0561000210AE /* Expenses.swift */; };
 		674B075723EEF699000210AE /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674B075623EEF699000210AE /* GameView.swift */; };
 		674B075A23EEFD6E000210AE /* AdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674B075923EEFD6E000210AE /* AdView.swift */; };
@@ -44,6 +46,8 @@
 		6738CD6923F35E3500D23653 /* OutsourceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutsourceView.swift; sourceTree = "<group>"; };
 		6738CD6B23F35E4D00D23653 /* Outsource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Outsource.swift; sourceTree = "<group>"; };
 		6738CD6F23F475CF00D23653 /* CreatableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatableItem.swift; sourceTree = "<group>"; };
+		674A39F223F5C1D400BE6FC9 /* CreatableItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatableItemView.swift; sourceTree = "<group>"; };
+		674A39F423F5CAC200BE6FC9 /* CreatableItemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatableItemList.swift; sourceTree = "<group>"; };
 		674B073323ED0561000210AE /* Expenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expenses.swift; sourceTree = "<group>"; };
 		674B075623EEF699000210AE /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		674B075923EEFD6E000210AE /* AdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdView.swift; sourceTree = "<group>"; };
@@ -88,6 +92,8 @@
 				6738CD6923F35E3500D23653 /* OutsourceView.swift */,
 				67BDABEF23EF9625006B9702 /* BasicStatsView.swift */,
 				6738CD6723F3307200D23653 /* ControlPanelView.swift */,
+				674A39F223F5C1D400BE6FC9 /* CreatableItemView.swift */,
+				674A39F423F5CAC200BE6FC9 /* CreatableItemList.swift */,
 			);
 			path = TestSwiftUI;
 			sourceTree = "<group>";
@@ -257,9 +263,11 @@
 				674B075A23EEFD6E000210AE /* AdView.swift in Sources */,
 				67254A4823F2FB350075382C /* MarketingElement.swift in Sources */,
 				6738CD6823F3307200D23653 /* ControlPanelView.swift in Sources */,
+				674A39F323F5C1D400BE6FC9 /* CreatableItemView.swift in Sources */,
 				6738CD7023F475CF00D23653 /* CreatableItem.swift in Sources */,
 				674B075723EEF699000210AE /* GameView.swift in Sources */,
 				674B073423ED0561000210AE /* Expenses.swift in Sources */,
+				674A39F523F5CAC200BE6FC9 /* CreatableItemList.swift in Sources */,
 				67BDABF023EF9625006B9702 /* BasicStatsView.swift in Sources */,
 				67C241BD23ECB64500D2CA83 /* Elements.swift in Sources */,
 				67ABE06023EC63D0005A454E /* SceneDelegate.swift in Sources */,
