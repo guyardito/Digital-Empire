@@ -84,8 +84,8 @@
 			children = (
 				674B075623EEF699000210AE /* GameView.swift */,
 				674B075923EEFD6E000210AE /* AdView.swift */,
-				6738CD6923F35E3500D23653 /* OutsourceView.swift */,
 				67254A4123F2F4540075382C /* CampaignView.swift */,
+				6738CD6923F35E3500D23653 /* OutsourceView.swift */,
 				67BDABEF23EF9625006B9702 /* BasicStatsView.swift */,
 				6738CD6723F3307200D23653 /* ControlPanelView.swift */,
 			);
