@@ -12,26 +12,8 @@ struct ControlPanelView: View {
 	@State var isShowingCreateSheet = false
 	@State var isShowingPowerupSheet = false
 	
-	@EnvironmentObject var stats : Stats
 	@EnvironmentObject var game : GameCoordinator
 	
-	
-	let createActionSheetView =
-		ActionSheet(
-			title: Text("What do you want to create?"),
-			message: Text(""),
-			buttons: [
-				.default(Text("Ad"), action: {   } ),
-				.default(Text("Lead Campaign"), action: {   } ),
-				.default(Text("Sales Page"), action: {   } ),
-				.default(Text("Sales Campaign"), action: {   } ),
-				.default(Text("Adjust Branding"), action: {   } ),
-				.default(Text("Hire Marketing Agency"), action: {   } ),
-				.default(Text("Hire Social Media Manager"), action: {   } ),
-				.default(Text("Hire Marketing Agency"), action: {   } ),
-				
-				.cancel()
-		] )
 	
 	
 	
@@ -53,8 +35,33 @@ struct ControlPanelView: View {
 	
 	
 	
+	
+	
+	
 	var body: some View {
+				
+		
+		let createActionSheetView =
+			ActionSheet(
+				title: Text("What do you want to create?"),
+				message: Text(""),
+				buttons: [
+					.default(Text("Ad"), action: {  self.game.createAd()  } ),
+					.default(Text("Lead Campaign"), action: {   } ),
+					.default(Text("Sales Page"), action: {   } ),
+					.default(Text("Sales Campaign"), action: {   } ),
+					.default(Text("Adjust Branding"), action: {   } ),
+					.default(Text("Hire Marketing Agency"), action: {   } ),
+					.default(Text("Hire Social Media Manager"), action: {   } ),
+					.default(Text("Hire Marketing Agency"), action: {   } ),
+					
+					.cancel()
+			] )
+		
+
+		
 		return VStack {
+			
 			HStack {
 				Spacer()
 				
@@ -84,7 +91,9 @@ struct ControlPanelView: View {
 				
 				
 			}
+			
 			Spacer(minLength: CGFloat(20))
+			
 			HStack {
 				Spacer()
 				
@@ -96,7 +105,7 @@ struct ControlPanelView: View {
 				
 				Button(action:  {
 					withAnimation {
-						self.stats.showOutsourcers = !self.stats.showOutsourcers
+						self.game.stats.showOutsourcers = !self.game.stats.showOutsourcers
 					}
 				}) {
 					Text("???")
@@ -121,8 +130,12 @@ struct ControlPanelView: View {
 	}
 }
 
+
+
 struct ControlPanel_Previews: PreviewProvider {
     static var previews: some View {
-        ControlPanelView()
+		let game = GameCoordinator()
+
+		return ControlPanelView().environmentObject(game)
     }
 }
