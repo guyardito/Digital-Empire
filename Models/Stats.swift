@@ -44,7 +44,7 @@ class Stats : ObservableObject {
 
 	@Published var moneyMakers = [MoneyMaker]()
 
-	@Published var creatableItems : [CreatableItemProxy] = [] 
+	@Published var creatableItems = [CreatableItemProxy]()
 	
 	@Published var ads = [Ad]()
 	@Published var campaigns = [Campaign]()
@@ -58,7 +58,6 @@ class Stats : ObservableObject {
 	@Published var specialEvents = [SpecialEvent]()
 
 	 init() {
-		print("here")
 	}
 	
 	
