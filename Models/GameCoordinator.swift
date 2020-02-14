@@ -92,12 +92,22 @@ class GameCoordinator : ObservableObject {
 	
 	func processItemCreation() {
 		
-//		for (idx, item) in stats.createdItems.enumerated() {
-//			stats.createdItems[idx].timeLeftTillCreated -= 1
-//			
-//		}
-		
+		for (idx, item) in stats.creatableItems.enumerated() {
+			if item.item.getDayStartedCreating() == stats.gameTimeInDays {
+				stats.creatableItems[idx].item.status = .Building
+				
+			} else if /* stats.gameTimeInDays >= item.item.getDayStartedCreating()  && */  ( item.item.getDayStartedCreating() + item.item.getDaysToCreate()) == stats.gameTimeInDays {
+				//stats.creatableItems[idx].item.setStatus(arg: .Ready)
+				stats.creatableItems[idx].item.status = .Ready
+				
+			}
+			
+			
+		}
+
+		//			}
 	}
+	
 	
 	
 	func processDailyExpenses() {

@@ -13,12 +13,18 @@ import Foundation
 
 
 class Ad : Identifiable, ObservableObject, CreatableItem  {
+	
 
+
+	//@Published var status: CreatableItemStatus = .NotStarted
+	@Published var status: CreatableItemStatus = .NotStarted
+	var statusPublished: Published<CreatableItemStatus> { _status }
+	var statusPublisher: Published<CreatableItemStatus>.Publisher { $status }
+	
 
 	
 	var id:Int
 	
-	@Published var status: CreatableItemStatus = .Building
 		
 	
 	@Published var name:String
@@ -51,11 +57,11 @@ class Ad : Identifiable, ObservableObject, CreatableItem  {
 		self.dayStartCreating = dayStartCreating
 		self.daysToCreate = daysToCreate
 		
-		if daysToCreate == 0 {
-			status = .Ready
-		} else {
-			status = .Building
-		}
+//		if daysToCreate == 0 {
+//			status = .Ready
+//		} else {
+//			status = .Building
+//		}
 		
 		self.isClosed = true
 	}
@@ -102,28 +108,41 @@ extension Ad {
 		return name
 	}
 	
+	
 	func getStatus() -> CreatableItemStatus {
 		return status
 	}
+	
 	
 	func setStatus(arg: CreatableItemStatus) {
 		status = arg
 	}
 	
+	
 	func getDayStartedCreating() -> Int {
 		return dayStartCreating
 	}
 	
+	
 	func setDayStartedCreating(arg: Int) {
+		guard arg >= 0 else { return }
+		
 		dayStartCreating = arg
 	}
+	
 	
 	func getDaysToCreate() -> Int {
 		return daysToCreate
 	}
 	
+	
 	func setDaysToCreate(arg: Int) {
+		guard arg >= 0 else { return }
+		
 		daysToCreate = arg
+		if daysToCreate == 0 {
+			status = .Ready
+		}
 	}
 }
 

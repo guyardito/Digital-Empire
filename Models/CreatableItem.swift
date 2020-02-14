@@ -22,9 +22,6 @@ protocol CreatableItem {
 	
 	func getName() -> String
 	
-	func getStatus() -> CreatableItemStatus
-	func setStatus(arg:CreatableItemStatus)
-	
 	func getDayStartedCreating() -> Int
 	func setDayStartedCreating(arg:Int)
 	
@@ -32,13 +29,20 @@ protocol CreatableItem {
 	func setDaysToCreate(arg:Int)
 	
 	func getUniqueID() -> Int
+	
+	
+	var status: CreatableItemStatus { get set }
+	var statusPublished: Published<CreatableItemStatus> { get  }
+	var statusPublisher: Published<CreatableItemStatus>.Publisher { get  }
 }
+
 
 
 class CreatableItemProxy : Identifiable, ObservableObject {
 	var id: Int
 	
-	let item:CreatableItem
+	@Published var item:CreatableItem
+	
 	
 	init(item:CreatableItem) {
 		self.item = item

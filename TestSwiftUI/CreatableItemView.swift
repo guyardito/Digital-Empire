@@ -8,23 +8,23 @@
 
 import SwiftUI
 
+
 struct CreatableItemView: View {
-	@State var item:CreatableItemProxy
 	
-	
-	
+	@ObservedObject var item:CreatableItemProxy
+		
 	
 	var body: some View {
 		
 		let body = 	Group {
-			Text("\(item.item.getName())")
+			Text("\(item.item.getName()), start: \(item.item.getDayStartedCreating())")
 			Text("\(item.item.getDaysToCreate()) days left")
-			Text("\(item.item.getStatus().rawValue)")
+			Text("\(item.item.status.rawValue)")
 		}
 
 		
 		return VStack {
-			if item.item.getStatus() == .Building {
+			if item.item.status == .Building {
 				body.foregroundColor(.gray)
 			} else {
 				body.foregroundColor(.black)
