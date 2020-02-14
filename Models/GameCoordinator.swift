@@ -22,7 +22,7 @@ class GameCoordinator : ObservableObject {
 	let maxDaysToPlay = 365
 	let minAmountToMake = 1000000
 	
-	var stats = Stats()
+	var stats : Stats = Stats()
 	
 	var timer : Timer?
 	
@@ -32,9 +32,10 @@ class GameCoordinator : ObservableObject {
 	}
 	
 	
+	// this constructor is specifically for ContentView_Previews for the GameView
 	init(stats:Stats) {
 		self.stats = stats
-		
+		self.stats.overwhelm = 50
 		//startGame(stats: self.stats)
 	}
 	
@@ -43,14 +44,14 @@ class GameCoordinator : ObservableObject {
 	
 	func startGame(stats:Stats) {
 		self.stats = stats
-		
+		self.stats.overwhelm = 100
+
 		gameShouldEndOnNextTick = false
 		
 		// start event timer, callbac, to processTick
 		DispatchQueue.main.async {
 
 			self.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
-				print("tick")
 				self!.processTimerTick()
 			}
 		}
@@ -137,7 +138,7 @@ class GameCoordinator : ObservableObject {
 	func processClosures() {
 
 		for ad in stats.ads {
-			if stats.gameTimeInDays >= ad.dayStarted   &&  stats.gameTimeInDays <= ad.dayEnded  {
+			if stats.gameTimeInDays >= ad.dayStartRunning   &&  stats.gameTimeInDays <= ad.dayEnded  {
 				ad.isClosed = false
 			} else {
 				ad.isClosed = true
@@ -235,13 +236,18 @@ class GameCoordinator : ObservableObject {
 		
 		let costPerClick = computeCostPerClick(stats: stats)
 		
-		let timeToImplement = computeTimeToCreate(stats: stats)
+		let timeToImplement = computeDaysToCreate(stats: stats)
 		
 		let startDay = stats.gameTimeInDays + timeToImplement
 		
-		let ad = Ad(name: name, dailySpend: 5, clickThru: 0, totalClicks: 0, costPerClick: costPerClick, dayStarted: startDay)
+		let ad = Ad(name: name, dailySpend: 5, clickThru: 0, totalClicks: 0, costPerClick: costPerClick, dayStartRunning: startDay, dayStartCreating: 15, daysToCreate: 3)
 		
 		stats.ads.insert(ad, at: 0)
+		
+		let e = CreatableItemProxy(item: ad)
+		stats.creatableItems.append(e)
+		
+		print("\(stats.ads.count) ads,  \(stats.creatableItems.count) creatables")
 	}
 	
 

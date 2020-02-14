@@ -35,9 +35,9 @@ func getTestUserData() -> Stats {
 	let stats = Stats()
 	
 	let ads = [
-		Ad(name: "ad 1", dailySpend: 5, clickThru: 4, totalClicks: 2391, costPerClick: 3.25, dayStarted: 5),
-		Ad(name: "ad 2", dailySpend: 3, clickThru: 8, totalClicks: 430, costPerClick: 4.20, dayStarted: 20),
-		Ad(name: "ad 3", dailySpend: 7, clickThru: 2, totalClicks: 3096, costPerClick: 1.75, dayStarted: 30)
+		Ad(name: "ad 1", dailySpend: 5, clickThru: 4, totalClicks: 2391, costPerClick: 3.25, dayStartRunning: 5, dayStartCreating:2, daysToCreate: 3),
+		Ad(name: "ad 2", dailySpend: 3, clickThru: 8, totalClicks: 430, costPerClick: 4.20, dayStartRunning: 20, dayStartCreating: 13, daysToCreate: 2),
+		Ad(name: "ad 3", dailySpend: 7, clickThru: 2, totalClicks: 3096, costPerClick: 1.75, dayStartRunning: 30, dayStartCreating: 22, daysToCreate: 1)
 		
 	]
 	stats.ads = ads
@@ -53,6 +53,15 @@ func getTestUserData() -> Stats {
 	
 	stats.money = 50000
 	
+//	 let proxies = [
+//		CreatableItemProxy( item: Ad(name: "ad 1", dailySpend: 5, clickThru: 4, totalClicks: 2391, costPerClick: 3.25, dayStartRunning: 5, dayStartCreating:2, daysToCreate: 3) ),
+//		CreatableItemProxy( item: Ad(name: "ad 2", dailySpend: 3, clickThru: 8, totalClicks: 430, costPerClick: 4.20, dayStartRunning: 20, dayStartCreating: 13, daysToCreate: 2) ),
+//		CreatableItemProxy( item: Ad(name: "ad 2", dailySpend: 3, clickThru: 8, totalClicks: 430, costPerClick: 4.20, dayStartRunning: 20, dayStartCreating: 13, daysToCreate: 2) ),
+//		CreatableItemProxy( item: Ad(name: "ad 2", dailySpend: 3, clickThru: 8, totalClicks: 430, costPerClick: 4.20, dayStartRunning: 20, dayStartCreating: 13, daysToCreate: 2) ),
+//		CreatableItemProxy( item: Ad(name: "ad 3", dailySpend: 7, clickThru: 2, totalClicks: 3096, costPerClick: 1.75, dayStartRunning: 30, dayStartCreating: 22, daysToCreate: 1) )
+//		
+//	]
+//	stats.creatableItems = proxies
 	
 	stats.livingExpenses = [
 		LivingExpense(type: .Housing, monthlyExpense: 3000),

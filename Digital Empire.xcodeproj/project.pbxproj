@@ -163,8 +163,8 @@
 			children = (
 				67C241B423EC984700D2CA83 /* GameCoordinator.swift */,
 				67254A4723F2FB350075382C /* MarketingElement.swift */,
-				6738CD6F23F475CF00D23653 /* CreatableItem.swift */,
 				67C241B623EC986700D2CA83 /* Stats.swift */,
+				6738CD6F23F475CF00D23653 /* CreatableItem.swift */,
 				67254A4323F2FA2E0075382C /* Ad.swift */,
 				67254A4523F2FA4E0075382C /* Campaign.swift */,
 				67C241B823EC987400D2CA83 /* Events.swift */,

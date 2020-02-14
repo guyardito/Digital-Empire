@@ -14,7 +14,7 @@ struct GameView: View {
 	
 
 	@EnvironmentObject var game : GameCoordinator
-	
+		
 	
 	var body: some View {
 		VStack {
@@ -28,7 +28,9 @@ struct GameView: View {
 					.transition(.move(edge: .bottom))
 			} 
 			
+			CreatableItemList(stats:game.stats)
 
+			
 			// ads
 			List {
 				ForEach(game.stats.ads, id:\.self.name) { data in

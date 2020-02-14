@@ -27,7 +27,7 @@ struct AdView: View {
 				VStack {
 					HStack {
 						Text("\(self.data.name): ")
-						Text("start: \(self.data.dayStarted)")
+						Text("start: \(self.data.dayStartRunning)")
 						Text("end: \(self.data.dayEnded)")
 						Text("daily: $\(self.data.dailySpend)")
 					}
@@ -67,6 +67,6 @@ struct AdView: View {
 
 struct AdView_Previews: PreviewProvider {
     static var previews: some View {
-		AdView( data: Ad(name: "ad 6", dailySpend: 8, clickThru: 4, totalClicks: 2391, costPerClick: 7.25, dayStarted: 15))
+		AdView( data: Ad(name: "ad 6", dailySpend: 8, clickThru: 4, totalClicks: 2391, costPerClick: 7.25, dayStartRunning: 15, dayStartCreating: 5, daysToCreate: 3))
     }
 }

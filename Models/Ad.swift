@@ -19,9 +19,7 @@ class Ad : Identifiable, ObservableObject, CreatableItem  {
 	var id:Int
 	
 	@Published var status: CreatableItemStatus = .Building
-	
-	@Published var daysToCreate: Int = 0
-	
+		
 	
 	@Published var name:String
 	@Published var dailySpend:Int
@@ -30,21 +28,34 @@ class Ad : Identifiable, ObservableObject, CreatableItem  {
 	
 	@Published var costPerClick:Float
 	
-	@Published var dayStarted:Int
+	@Published var dayStartRunning:Int
 	@Published var dayEnded:Int
+	
+	@Published var dayStartCreating:Int
+	@Published var daysToCreate:Int
 	
 	@Published var isClosed:Bool
 	
 	
-	init(name:String, dailySpend:Int, clickThru:Int, totalClicks:Int, costPerClick:Float, dayStarted:Int) {
+	init(name:String, dailySpend:Int, clickThru:Int, totalClicks:Int, costPerClick:Float, dayStartRunning:Int, dayStartCreating:Int, daysToCreate:Int ) {
 		self.id = name.hashValue
 		self.name = name
 		self.dailySpend = dailySpend
 		self.clickThru = clickThru
 		self.totalClicks = totalClicks
 		self.costPerClick = costPerClick
-		self.dayStarted = dayStarted
-		self.dayEnded = dayStarted + 7
+		
+		self.dayStartRunning = dayStartRunning
+		self.dayEnded = dayStartRunning + 7
+
+		self.dayStartCreating = dayStartCreating
+		self.daysToCreate = daysToCreate
+		
+		if daysToCreate == 0 {
+			status = .Ready
+		} else {
+			status = .Building
+		}
 		
 		self.isClosed = true
 	}
@@ -52,7 +63,7 @@ class Ad : Identifiable, ObservableObject, CreatableItem  {
 
 
 
-func computeTimeToCreate(stats:Stats) -> Int {
+func computeDaysToCreate(stats:Stats) -> Int {
 	var rv = 1.0
 	
 	rv = Double(100) / Double(stats.tech)   +  Double(100) / Double(stats.audacity)
@@ -81,6 +92,16 @@ func computeCostPerClick(stats:Stats) -> Float {
 
 
 extension Ad {
+	
+	func getUniqueID() -> Int {
+		return id
+	}
+	
+	
+	func getName() -> String {
+		return name
+	}
+	
 	func getStatus() -> CreatableItemStatus {
 		return status
 	}
@@ -89,12 +110,12 @@ extension Ad {
 		status = arg
 	}
 	
-	func getDayStarted() -> Int {
-		return dayStarted
+	func getDayStartedCreating() -> Int {
+		return dayStartCreating
 	}
 	
-	func setDayStarted(arg: Int) {
-		dayStarted = arg
+	func setDayStartedCreating(arg: Int) {
+		dayStartCreating = arg
 	}
 	
 	func getDaysToCreate() -> Int {

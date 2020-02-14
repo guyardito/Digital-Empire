@@ -30,12 +30,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		// Use a UIHostingController as window root view controller.
 		if let windowScene = scene as? UIWindowScene {
 			let window = UIWindow(windowScene: windowScene)
+			gameCoordinator.startGame(stats: stats)
 			let contentView = GameView().environmentObject(gameCoordinator)
 			window.rootViewController = UIHostingController(rootView: contentView)
 			self.window = window
 			window.makeKeyAndVisible()
 			
-			gameCoordinator.startGame(stats: stats)
 			
 		}
 	}

@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 // NB!  need this to be a 'class' so that @Published will be accepted
 class Stats : ObservableObject {
 		
@@ -41,9 +42,10 @@ class Stats : ObservableObject {
 	@Published var livingExpenses = [LivingExpense]()
 
 
-	@Published var createdItems = [CreatableItem]()
 	@Published var moneyMakers = [MoneyMaker]()
 
+	@Published var creatableItems : [CreatableItemProxy] = [] 
+	
 	@Published var ads = [Ad]()
 	@Published var campaigns = [Campaign]()
 	
@@ -55,7 +57,11 @@ class Stats : ObservableObject {
 	
 	@Published var specialEvents = [SpecialEvent]()
 
-
+	 init() {
+		print("here")
+	}
+	
+	
 	func marketingElements() -> [MarketingElement] {
 		
 		var rv = [MarketingElement]()

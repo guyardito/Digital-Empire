@@ -10,25 +10,31 @@ import SwiftUI
 
 struct CreatableItemList: View {
 	
-	@State var items:[CreatableItemProxy]
+	//@EnvironmentObject var game:GameCoordinator
+	@ObservedObject var stats:Stats  // NB need this declaration to recognize changes to the array
 	
 	var body: some View {
 		ScrollView(.horizontal)  {
+			ZStack {
+			Color.yellow
 			HStack {
 				// multiple status view here
 
-				ForEach(items) { item in
+				ForEach(stats.creatableItems) { item in
 					CreatableItemView(item: item)
 				}
 				.padding(.horizontal, 15)
 			}
-		}.frame(height: 190)
+			}
+		}.frame(height: 80)
 		
 	}
 }
 
 
 struct CreatableItemList_Previews: PreviewProvider {
+	
+	static let stats = getTestUserData()
 	
 	static let ads = [
 		CreatableItemProxy( item: Ad(name: "ad 1", dailySpend: 5, clickThru: 4, totalClicks: 2391, costPerClick: 3.25, dayStartRunning: 5, dayStartCreating:2, daysToCreate: 3) ),
@@ -40,6 +46,7 @@ struct CreatableItemList_Previews: PreviewProvider {
 	]
 
     static var previews: some View {
-		CreatableItemList(items:ads)
+		//CreatableItemList(items:ads)
+		CreatableItemList(stats:stats)
     }
 }
