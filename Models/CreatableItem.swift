@@ -11,9 +11,11 @@ import Foundation
 
 
 enum CreatableItemStatus : String {
-	case NotStarted
+	case Waiting
 	case Building
 	case Ready
+	case Running
+	case Done
 }
 
 

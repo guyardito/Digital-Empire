@@ -34,7 +34,7 @@ struct CreatableItemView: View {
 //			case .Ready:
 //				body.foregroundColor(.black)
 //
-			if item.item.status == .NotStarted { body.foregroundColor(.gray) }
+			if item.item.status == .Waiting { body.foregroundColor(.gray) }
 					
 			else if item.item.status == .Building { body.foregroundColor(.orange) }
 					

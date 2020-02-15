@@ -17,7 +17,7 @@ class Ad : Identifiable, ObservableObject, CreatableItem  {
 
 
 	//@Published var status: CreatableItemStatus = .NotStarted
-	@Published var status: CreatableItemStatus = .NotStarted
+	@Published var status: CreatableItemStatus = .Waiting
 	var statusPublished: Published<CreatableItemStatus> { _status }
 	var statusPublisher: Published<CreatableItemStatus>.Publisher { $status }
 	
