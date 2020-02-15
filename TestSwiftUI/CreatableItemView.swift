@@ -20,7 +20,7 @@ struct CreatableItemView: View {
 			Text("\(item.item.getName())")
 			Text("Build: \(item.item.getDayStartedCreating()) / \(item.item.getDayStartedCreating()+item.item.getDaysToCreate())")
 			Text("\(item.item.status.rawValue)")
-		}
+		}.frame(width:100)
 
 		
 		return VStack {
