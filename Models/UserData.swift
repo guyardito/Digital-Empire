@@ -61,7 +61,7 @@ func getTestUserData() -> Stats {
 //		CreatableItemProxy( item: Ad(name: "ad 3", dailySpend: 7, clickThru: 2, totalClicks: 3096, costPerClick: 1.75, dayStartRunning: 30, dayStartCreating: 22, daysToCreate: 1) )
 		
 	]
-	stats.creatableItems = proxies
+	stats.creatableItemProxies = proxies
 	
 	stats.livingExpenses = [
 		LivingExpense(type: .Housing, monthlyExpense: 3000),

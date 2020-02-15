@@ -17,19 +17,31 @@ struct CreatableItemView: View {
 	var body: some View {
 		
 		let body = 	Group {
-			Text("\(item.item.getName()), start: \(item.item.getDayStartedCreating())")
-			Text("\(item.item.getDaysToCreate()) days left")
+			Text("\(item.item.getName())")
+			Text("Build: \(item.item.getDayStartedCreating()) / \(item.item.getDayStartedCreating()+item.item.getDaysToCreate())")
 			Text("\(item.item.status.rawValue)")
 		}
 
 		
 		return VStack {
-			if item.item.status == .Building {
-				body.foregroundColor(.gray)
-			} else {
-				body.foregroundColor(.black)
+//			switch item.item.status {
+//			case .NotStarted:
+//				body.foregroundColor(.gray)
+//
+//			case .Building:
+//				body.foregroundColor(.orange)
+//
+//			case .Ready:
+//				body.foregroundColor(.black)
+//
+			if item.item.status == .NotStarted { body.foregroundColor(.gray) }
+					
+			else if item.item.status == .Building { body.foregroundColor(.orange) }
+					
+			else { body.foregroundColor(.black) }
 			}
-		}
+
+		
 	}
 }
 

@@ -22,7 +22,7 @@ struct CreatableItemList: View {
 			HStack {
 				// multiple status view here
 
-				ForEach(stats.creatableItems) { item in
+				ForEach(stats.creatableItemProxies) { item in
 					CreatableItemView(item: item)
 				}
 				.padding(.horizontal, 15)

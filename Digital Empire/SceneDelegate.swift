@@ -31,7 +31,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		if let windowScene = scene as? UIWindowScene {
 			let window = UIWindow(windowScene: windowScene)
 			gameCoordinator.startGame(stats: stats)
-			let contentView = GameView().environmentObject(gameCoordinator)
+			let contentView = GameView(stats:stats).environmentObject(gameCoordinator)
 			window.rootViewController = UIHostingController(rootView: contentView)
 			self.window = window
 			window.makeKeyAndVisible()

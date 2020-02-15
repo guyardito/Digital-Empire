@@ -14,7 +14,8 @@ struct GameView: View {
 	
 
 	@EnvironmentObject var game : GameCoordinator
-		
+	@ObservedObject var stats : Stats
+	
 	
 	var body: some View {
 		VStack {
@@ -33,7 +34,7 @@ struct GameView: View {
 			
 			// ads
 			List {
-				ForEach(game.stats.ads, id:\.self.name) { data in
+				ForEach(stats.ads, id:\.self.name) { data in
 					AdView(data:data )
 				}
 			}
@@ -76,7 +77,7 @@ struct ContentView_Previews: PreviewProvider {
 	
 	static var previews: some View {
 
-		GameView()
+		GameView(stats:stats)
 			.environmentObject(game)
 	}
 }

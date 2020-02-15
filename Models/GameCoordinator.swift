@@ -92,13 +92,13 @@ class GameCoordinator : ObservableObject {
 	
 	func processItemCreation() {
 		
-		for (idx, item) in stats.creatableItems.enumerated() {
+		for (idx, item) in stats.creatableItemProxies.enumerated() {
 			if item.item.getDayStartedCreating() == stats.gameTimeInDays {
-				stats.creatableItems[idx].item.status = .Building
+				stats.creatableItemProxies[idx].item.status = .Building
 				
 			} else if /* stats.gameTimeInDays >= item.item.getDayStartedCreating()  && */  ( item.item.getDayStartedCreating() + item.item.getDaysToCreate()) == stats.gameTimeInDays {
 				//stats.creatableItems[idx].item.setStatus(arg: .Ready)
-				stats.creatableItems[idx].item.status = .Ready
+				stats.creatableItemProxies[idx].item.status = .Ready
 				
 			}
 			
@@ -255,9 +255,9 @@ class GameCoordinator : ObservableObject {
 		stats.ads.insert(ad, at: 0)
 		
 		let e = CreatableItemProxy(item: ad)
-		stats.creatableItems.append(e)
+		stats.creatableItemProxies.append(e)
 		
-		print("\(stats.ads.count) ads,  \(stats.creatableItems.count) creatables")
+		print("\(stats.ads.count) ads,  \(stats.creatableItemProxies.count) creatables")
 	}
 	
 
