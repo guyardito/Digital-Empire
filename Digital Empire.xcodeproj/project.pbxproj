@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		67061B2223F73F9C004FCF74 /* AdSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67061B2123F73F9C004FCF74 /* AdSettingsView.swift */; };
 		67254A4223F2F4540075382C /* CampaignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67254A4123F2F4540075382C /* CampaignView.swift */; };
 		67254A4423F2FA2E0075382C /* Ad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67254A4323F2FA2E0075382C /* Ad.swift */; };
 		67254A4623F2FA4E0075382C /* Campaign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67254A4523F2FA4E0075382C /* Campaign.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		67061B2123F73F9C004FCF74 /* AdSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdSettingsView.swift; sourceTree = "<group>"; };
 		67254A4123F2F4540075382C /* CampaignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignView.swift; sourceTree = "<group>"; };
 		67254A4323F2FA2E0075382C /* Ad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ad.swift; sourceTree = "<group>"; };
 		67254A4523F2FA4E0075382C /* Campaign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Campaign.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				6738CD6723F3307200D23653 /* ControlPanelView.swift */,
 				674A39F223F5C1D400BE6FC9 /* CreatableItemView.swift */,
 				674A39F423F5CAC200BE6FC9 /* CreatableItemList.swift */,
+				67061B2123F73F9C004FCF74 /* AdSettingsView.swift */,
 			);
 			path = TestSwiftUI;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				67254A4823F2FB350075382C /* MarketingElement.swift in Sources */,
 				6738CD6823F3307200D23653 /* ControlPanelView.swift in Sources */,
 				674A39F323F5C1D400BE6FC9 /* CreatableItemView.swift in Sources */,
+				67061B2223F73F9C004FCF74 /* AdSettingsView.swift in Sources */,
 				6738CD7023F475CF00D23653 /* CreatableItem.swift in Sources */,
 				674B075723EEF699000210AE /* GameView.swift in Sources */,
 				674B073423ED0561000210AE /* Expenses.swift in Sources */,
