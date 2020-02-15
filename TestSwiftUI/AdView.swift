@@ -36,12 +36,14 @@ struct AdView: View {
 					//Slider(value: $sliderValue)
 				}
 				Spacer(minLength: CGFloat(40.0))
-			}
+			
+			}.foregroundColor(data.isClosed ? .gray : .black)
+			
 			VStack {
 				Spacer()
-				Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+				Button(action: { print("hey ya") } ) {
 					Text("Pause")
-				}.buttonStyle(DefaultButtonStyle())
+				}.buttonStyle(BorderlessButtonStyle())
 //				Spacer()
 //				Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
 //					Text("Cancel")
@@ -54,13 +56,13 @@ struct AdView: View {
 		return HStack {
 			Spacer(minLength: CGFloat(40))
 			
-			if data.isClosed {
-				mainView.foregroundColor(.gray)
-				
-			} else {
-				mainView
-				
-			}
+			mainView
+//			if data.isClosed {
+//				mainView.foregroundColor(.gray)
+//				
+//			} else {
+//				mainView
+//			}
 		}
 	}
 }
