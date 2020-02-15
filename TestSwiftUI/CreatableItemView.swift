@@ -39,7 +39,12 @@ struct CreatableItemView: View {
 			else if item.item.status == .Building { body.foregroundColor(.orange) }
 					
 			else { body.foregroundColor(.black) }
-			}
+			}.padding()
+			//.border(Color.purple, width:5) .cornerRadius(15.0)
+			.overlay(
+				RoundedRectangle(cornerRadius: 20)
+					.stroke(Color.purple, lineWidth: 5)
+		)
 
 		
 	}
