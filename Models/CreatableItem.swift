@@ -14,8 +14,8 @@ enum CreatableItemStatus : String {
 	case Waiting
 	case Building
 	case Ready
-	case Running
-	case Done
+	case Active
+	case Paused
 }
 
 
