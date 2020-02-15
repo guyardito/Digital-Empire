@@ -28,7 +28,7 @@ struct CreatableItemList: View {
 				.padding(.horizontal, 15)
 			}
 			}
-		}.frame(height: 80)
+		}.frame(height: 100)
 		
 	}
 }
