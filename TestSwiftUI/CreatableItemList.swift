@@ -23,9 +23,14 @@ struct CreatableItemList: View {
 				// multiple status view here
 
 				ForEach(stats.creatableItemProxies) { item in
-					CreatableItemView(item: item)
+					Button(action: {
+						print("\(item.item.getName())")}
+) {
+						CreatableItemView(item: item)
+					}
+				
 				}
-				.padding(.horizontal, 15)
+				.padding(.horizontal, 10)
 			}
 			}
 		}.frame(height: 100)
