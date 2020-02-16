@@ -11,6 +11,7 @@ import Foundation
 
 class GenericCreatable : CreatableItem, Identifiable {
 	
+	var uid: Int
 	
 	//@Published var status: CreatableItemStatus = .NotStarted
 	@Published var status: CreatableItemStatus = .NotStarted
@@ -25,8 +26,8 @@ class GenericCreatable : CreatableItem, Identifiable {
 	
 	@Published var itemType:CreatableItemType
 	
-	@Published var dayStartRunning:Int
-	@Published var dayEnded:Int
+//	@Published var dayStartRunning:Int
+//	@Published var dayEnded:Int
 	
 	@Published var dayStartCreating:Int
 	@Published var daysToCreate:Int
@@ -34,17 +35,18 @@ class GenericCreatable : CreatableItem, Identifiable {
 	@Published var isClosed:Bool
 	
 	
-	init(name:String, itemType:CreatableItemType, dayStartRunning:Int=0, dayEnded:Int=0, dayStartCreating:Int, daysToCreate:Int ) {
+	init(name:String, itemType:CreatableItemType, dayStartCreating:Int, daysToCreate:Int ) {
 		self.status = .NotStarted
 
 		self.id = name.hashValue
-		
+		self.uid = self.id
+
 		self.name = name
 		
 		self.itemType = itemType
 		
-		self.dayStartRunning = dayStartRunning
-		self.dayEnded = dayEnded
+		//self.dayStartRunning = dayStartRunning
+		//self.dayEnded = dayEnded
 		
 		self.dayStartCreating = dayStartCreating
 		self.daysToCreate = daysToCreate
