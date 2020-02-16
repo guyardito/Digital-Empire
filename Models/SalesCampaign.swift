@@ -11,8 +11,42 @@ import Foundation
 
 
 
-class SalesCampaign : Identifiable, ObservableObject {
+class SalesCampaign : CreatableItem, Identifiable, ObservableObject {
+	var uid: Int
+	
+	func getName() -> String {
+		return name
+	}
+	
+	func getDayStartedCreating() -> Int {
+		return startDay
+	}
+	
+	func setDayStartedCreating(arg: Int) {
+		startDay = arg
+	}
+	
+	func getDaysToCreate() -> Int {
+		return endDay - startDay
+	}
+	
+	func setDaysToCreate(arg: Int) {
+		endDay = startDay + arg
+	}
+	
+	func getUniqueID() -> Int {
+		return id
+	}
+	
+	func getItemType() -> CreatableItemType {
+		return .SalesCampaign
+	}
+	
 	var id:Int
+
+	@Published var status: CreatableItemStatus = .NotStarted
+	var statusPublished: Published<CreatableItemStatus> { _status }
+	var statusPublisher: Published<CreatableItemStatus>.Publisher { $status }
 
 	@Published var name:String = ""
 	
@@ -35,7 +69,8 @@ class SalesCampaign : Identifiable, ObservableObject {
 	
 	init(name:String, product:String, price:Int, startDay:Int, endDay:Int, percent:Int, adSpend:Int) {
 		self.id = name.hashValue
-
+		self.uid = self.id
+		
 		self.name = name
 		self.product = product
 		self.productPrice = price
@@ -54,7 +89,7 @@ class SalesCampaign : Identifiable, ObservableObject {
 
 func computePercentWhoPurchase(stats:Stats, productPrice:Int) -> Int {
 	
-	let r = ( stats.audienceCongruence * stats.aggregateEngagement ) / 100
+	let r = ( stats.audienceCongruence * stats.audienceEngagement ) / 100
 	var rv = 0
 	
 	
