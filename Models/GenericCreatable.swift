@@ -79,7 +79,7 @@ class GenericCreatable : CreatableItem, Identifiable {
 		return id
 	}
 	
-	func getType() -> CreatableItemType {
+	func getItemType() -> CreatableItemType {
 		return itemType
 	}
 	

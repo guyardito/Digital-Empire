@@ -14,10 +14,13 @@ import Foundation
 
 class Ad : Identifiable, ObservableObject, CreatableItem  {
 	
-
+	func getItemType() -> CreatableItemType {
+		return .Ad
+	}
+	
 
 	//@Published var status: CreatableItemStatus = .NotStarted
-	@Published var status: CreatableItemStatus = .Waiting
+	@Published var status: CreatableItemStatus = .NotStarted
 	var statusPublished: Published<CreatableItemStatus> { _status }
 	var statusPublisher: Published<CreatableItemStatus>.Publisher { $status }
 	

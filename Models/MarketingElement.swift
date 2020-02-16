@@ -21,7 +21,7 @@ enum MarketingItemStatus {
 enum MarketingElement {
 	case Ad(ad:Ad)
 	
-	case Campaign(campaign:Campaign)
+	case Campaign(campaign:SalesCampaign)
 }
 
 

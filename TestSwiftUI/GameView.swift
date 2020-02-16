@@ -44,7 +44,7 @@ struct GameView: View {
 			// campaigns
 			List {
 				ForEach(game.stats.campaigns, id:\.self.name) { data in
-					CampaignView(data:data)
+					SalesCampaignView(data:data)
 					
 					// NB  having trouble getting 'if / else' to compile within ForEach,
 					// so moved the logic to within the row's View

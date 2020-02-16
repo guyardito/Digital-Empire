@@ -9,6 +9,13 @@
 import Foundation
 
 
+enum AttributeType {
+	case Drive
+	case Vision
+	case Organization
+	case Influence
+}
+
 
 // NB this is a 'class' so that the callbacks from the timer can easily mutate the object
 
@@ -260,5 +267,83 @@ class GameCoordinator : ObservableObject {
 		print("\(stats.ads.count) ads,  \(stats.creatableItemProxies.count) creatables")
 	}
 	
+	
+	
+	func createLeadCampaign() {
+		print("create lead campaign")
+	}
+	
+	
+	
+	func adjustBranding() {
+		print("adjust branding")
+	}
+
+	
+	func createSalesCampaign() {
+		print("create sales campaign")
+	}
+	
+	
+	/*
+	func createLeadMagnet() {
+		
+	}
+	*/
+
+	/*
+	func createSalesPage() {
+		
+	}
+	*/
+	
+	/*
+	func createSalesCampaign() {
+		
+	}
+	
+	
+
+	func createCampaign() {
+		
+	}
+	
+	func createWebsite() {
+		
+	}
+	
+	
+	func createLandingPage() {
+		
+	}
+	
+	
+	func createProduct() {
+		
+	}
+	*/
+	
+	func postSocialMedia() {
+		print("post social media")
+	}
+	
+	func postEmail() {
+		print("post email")
+	}
+	
+	func postBlog() {
+		print("post blog")
+	}
+	
+	
+	
+	func playChanceCard() {
+		
+	}
+	
+	
+	func powerUp(_ attribute:AttributeType) {
+		
+	}
 
 }

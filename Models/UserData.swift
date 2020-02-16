@@ -43,9 +43,9 @@ func getTestUserData() -> Stats {
 	stats.ads = ads
 	//stats.ads[1].isClosed = true
 	
-	let campaigns:[Campaign] = [
-		Campaign(name: "cmpn 1", product: "Sell Your Soul", price: 499, startDay: 10, endDay: 17, percent: 2, adSpend: 500),
-		Campaign(name: "cmpn 2", product: "Sell Your Soul", price: 299, startDay: 70, endDay: 77, percent: 4, adSpend: 500)
+	let campaigns:[SalesCampaign] = [
+		SalesCampaign(name: "cmpn 1", product: "Sell Your Soul", price: 499, startDay: 10, endDay: 17, percent: 2, adSpend: 500),
+		SalesCampaign(name: "cmpn 2", product: "Sell Your Soul", price: 299, startDay: 70, endDay: 77, percent: 4, adSpend: 500)
 
 	]
 	stats.campaigns = campaigns

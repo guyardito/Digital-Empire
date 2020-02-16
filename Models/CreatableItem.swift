@@ -11,7 +11,7 @@ import Foundation
 
 
 enum CreatableItemStatus : String {
-	case Waiting
+	case NotStarted
 	case Building
 	case Ready
 	case Active
@@ -32,6 +32,7 @@ protocol CreatableItem {
 	
 	func getUniqueID() -> Int
 	
+	func getItemType() -> CreatableItemType
 	
 	var status: CreatableItemStatus { get set }
 	var statusPublished: Published<CreatableItemStatus> { get  }
@@ -63,9 +64,9 @@ class CreatableItemProxy : Identifiable, ObservableObject {
 
 
 
-enum CreatableItemType {
+enum CreatableItemType : String {
 	
-	case Ad(ad: Ad)
+	case Ad
 	case BlogPost
 	case Freebie
 	case Course
@@ -85,8 +86,42 @@ enum CreatableItemType {
 
 
 func timeToCreate<CreatableItem: Identifiable>(item:CreatableItem) -> Int {
+	var rv = 0
+	let itemType: CreatableItemType = .Website
 	
-	return 0
+	switch itemType {
+		case .Ad:
+		rv = 5
+		
+		case .BlogPost:
+		rv = 2
+		
+		case .Freebie:
+		rv = 5
+		
+		case .Course:
+		rv = 60
+		
+		case .SalesPage:
+		rv = 20
+		
+		case .Website:
+		rv = 30
+		
+		case .EmailCampaign:
+		rv = 45
+		
+		@unknown default:
+		rv = 10
+	}
+	
+	// adjust value for 'Drive' score
+	
+	// adjust value for 'Efficiency' score
+	
+	// adust value for 'Overwhelm' score
+	
+	return rv
 }
 
 

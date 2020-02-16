@@ -47,7 +47,7 @@ class Stats : ObservableObject {
 	@Published var creatableItemProxies = [CreatableItemProxy]()
 	
 	@Published var ads = [Ad]()
-	@Published var campaigns = [Campaign]()
+	@Published var campaigns = [SalesCampaign]()
 	
 	@Published var marketingItems = [MarketingItem]()
 

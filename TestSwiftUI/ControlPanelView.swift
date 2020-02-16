@@ -15,21 +15,6 @@ struct ControlPanelView: View {
 	@EnvironmentObject var game : GameCoordinator
 	
 	
-	
-	
-	let powerUpActionSheetView =
-		ActionSheet(
-			title: Text("What do you want to power up?"),
-			message: Text(""),
-			buttons: [
-				.default(Text("Copywriting"), action: {   } ),
-				.default(Text("Tech"), action: {   } ),
-				.default(Text("Influence"), action: {   } ),
-				.default(Text("Audacity"), action: {   } ),
-				
-				.cancel()
-				//.destructive(Text("Cancel"))
-		] )
 
 	
 	
@@ -37,9 +22,26 @@ struct ControlPanelView: View {
 	
 	
 	
-	
 	var body: some View {
-				
+			
+		
+		
+		let powerUpActionSheetView =
+			ActionSheet(
+				title: Text("What do you want to power up?"),
+				message: Text(""),
+				buttons: [
+					// Influence  Organization  Drive  Vision
+					.default(Text("Copywriting"), action: { self.game.powerUp(.Influence)   } ),
+					.default(Text("Tech"), action: { self.game.powerUp(.Organization)   } ),
+					.default(Text("Influence"), action: { self.game.powerUp(.Influence)   } ),
+					.default(Text("Audacity"), action: { self.game.powerUp(.Drive)   } ),
+					
+					.cancel()
+					//.destructive(Text("Cancel"))
+			] )
+		
+		
 		
 		let createActionSheetView =
 			ActionSheet(
@@ -48,12 +50,12 @@ struct ControlPanelView: View {
 				buttons: [
 					.default(Text("Ad"), action: {  self.game.createAd()  } ),
 					.default(Text("Lead Campaign"), action: {   } ),
-					.default(Text("Sales Page"), action: {   } ),
+					//.default(Text("Sales Page"), action: {   } ),
 					.default(Text("Sales Campaign"), action: {   } ),
 					.default(Text("Adjust Branding"), action: {   } ),
-					.default(Text("Hire Marketing Agency"), action: {   } ),
-					.default(Text("Hire Social Media Manager"), action: {   } ),
-					.default(Text("Hire Marketing Agency"), action: {   } ),
+					//.default(Text("Hire Marketing Agency"), action: {   } ),
+					//.default(Text("Hire Social Media Manager"), action: {   } ),
+					//.default(Text("Hire Marketing Agency"), action: {   } ),
 					
 					.cancel()
 			] )
@@ -65,7 +67,7 @@ struct ControlPanelView: View {
 			HStack {
 				Spacer()
 				
-				Button(action: {}) {
+				Button(action: { self.game.postBlog() }) {
 					Text("Blog")
 				}
 				
@@ -84,7 +86,7 @@ struct ControlPanelView: View {
 				
 				Spacer()
 
-				Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+				Button(action: { self.game.postSocialMedia() } ) {
 					Text("Social Media")
 				}
 				Spacer()
@@ -97,7 +99,7 @@ struct ControlPanelView: View {
 			HStack {
 				Spacer()
 				
-				Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+				Button(action: { self.game.playChanceCard() }) {
 					Text("Chance Card")
 				}
 				

@@ -14,39 +14,62 @@ struct CreatableItemView: View {
 	@ObservedObject var item:CreatableItemProxy
 		
 	
+	func colorForStatus(status:CreatableItemStatus) -> Color {
+		switch item.item.status {
+			case .NotStarted:
+				return .gray
+			
+			case .Building:
+				return .orange
+			
+			case .Ready:
+				return .black
+			
+			case .Active:
+				return .green
+			
+			case .Paused:
+				return .yellow
+			
+		}
+	}
+	
+	
 	var body: some View {
 		
 		let body = 	Group {
-			Text("\(item.item.getName())")
+			Text("\(item.item.getName()): \(item.item.getItemType().rawValue)")
 			Text("Build: \(item.item.getDayStartedCreating()) / \(item.item.getDayStartedCreating()+item.item.getDaysToCreate())")
 			Text("\(item.item.status.rawValue)")
 		}.frame(width:100)
-
+		
 		
 		return VStack {
-//			switch item.item.status {
-//			case .NotStarted:
-//				body.foregroundColor(.gray)
-//
-//			case .Building:
-//				body.foregroundColor(.orange)
-//
-//			case .Ready:
-//				body.foregroundColor(.black)
-//
-			if item.item.status == .Waiting { body.foregroundColor(.gray) }
-					
-			else if item.item.status == .Building { body.foregroundColor(.orange) }
-					
-			else { body.foregroundColor(.black) }
-			}.padding()
-			//.border(Color.purple, width:5) .cornerRadius(15.0)
-			.overlay(
-				RoundedRectangle(cornerRadius: 20)
-					.stroke(Color.purple, lineWidth: 5)
-		)
+			/*
+			// NB can't have 'switch' w/o getting error: "Closure containing control flow statement cannot be used with function builder ViewBuilder."
+			
+			switch item.item.status {
+			case .NotStarted:
+			body.foregroundColor(.gray)
+			
+			case .Building:
+			body.foregroundColor(.orange)
+			
+			case .Ready:
+			body.foregroundColor(.black)
+			*/
+			
+			
+			body
 
-		
+				
+		}
+		.foregroundColor(colorForStatus(status: item.item.status))
+		.padding()
+		.overlay(
+			RoundedRectangle(cornerRadius: 20)
+				.stroke(Color.purple, lineWidth: 5)
+		)
 	}
 }
 
