@@ -11,7 +11,7 @@ import Foundation
 
 
 
-class Campaign : Identifiable, ObservableObject {
+class SalesCampaign : Identifiable, ObservableObject {
 	var id:Int
 
 	@Published var name:String = ""

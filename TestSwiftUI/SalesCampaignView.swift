@@ -12,9 +12,9 @@ import SwiftUI
 
 
 
-struct CampaignView: View {
+struct SalesCampaignView: View {
 	
-	@ObservedObject var data:Campaign
+	@ObservedObject var data:SalesCampaign
 		
 	var body: some View {
 		
@@ -72,11 +72,11 @@ struct CampaignView: View {
 
 struct CampaignView_Previews: PreviewProvider {
 	
-	static var cpn = Campaign(name: "cmpn 1", product: "Sell Your Soul", price: 499, startDay: 30, endDay: 37, percent: 2, adSpend: 500)
+	static var cpn = SalesCampaign(name: "cmpn 1", product: "Sell Your Soul", price: 499, startDay: 30, endDay: 37, percent: 2, adSpend: 500)
 
 	
     static var previews: some View {
 
-		CampaignView(data:cpn)
+		SalesCampaignView(data:cpn)
     }
 }
