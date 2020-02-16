@@ -16,24 +16,32 @@ struct CreatableItemList: View {
 	@ObservedObject var stats:Stats  // NB need this declaration to recognize changes to the array
 
 	var body: some View {
-		ScrollView(.horizontal)  {
+		ScrollView(.horizontal) {
 			ZStack {
-			Color.yellow
-			HStack {
-				// multiple status view here
-
-				ForEach(stats.creatableItemProxies) { item in
-					Button(action: {
-						print("\(item.item.getName())")}
-) {
-						CreatableItemView(item: item)
-					}
 				
+				Color.yellow
+				HStack {
+					// multiple status view here
+					//Text("hi")
+					
+					//ForEach([Text("yes"), Text("no")], id:\.self.UUID) { item in
+					// NB we can't use a function here becaise 'id' wants a KEYPATH !!!
+					ForEach(stats.genericCreatables, id:\.self.uid ) { item in
+					//ForEach(stats.ads) { item in
+						Button(action: {
+							//print("\(item.item.getName())")}
+							//print("Hi")
+						} ) {
+							CreatableItemView(item: item)
+						}
+						
+					}
+					.padding(.horizontal, CGFloat(10) )
+					
 				}
-				.padding(.horizontal, 10)
+				
 			}
-			}
-		}.frame(height: 100)
+		} .frame(height: 100)
 		
 	}
 }
