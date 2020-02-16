@@ -48,7 +48,7 @@ func getTestUserData() -> Stats {
 		SalesCampaign(name: "cmpn 2", product: "Sell Your Soul", price: 299, startDay: 70, endDay: 77, percent: 4, adSpend: 500)
 
 	]
-	stats.campaigns = campaigns
+	stats.salesCampaigns = campaigns
 	
 	
 	stats.money = 50000
