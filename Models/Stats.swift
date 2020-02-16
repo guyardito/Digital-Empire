@@ -14,17 +14,20 @@ class Stats : ObservableObject {
 		
 	@Published var powerUpPoints = 0
 	
-	@Published var aggregateEngagement = 0	// eg  email opening, post commenting, etc.
-	@Published var audienceCongruence = 0
+	@Published var audienceEngagement = 0	// eg  email opening, post commenting, etc.
+	@Published var audienceCongruence = 30
 	
 	
 	@Published var gameTimeInDays = 1
 
 	// skills
-	@Published var copywriting = 20
-	@Published var tech = 23
-	@Published var influence = 26
-	@Published var audacity = 29
+	@Published var influence = 20  // copywriting  
+	@Published var compliance = 23   // compliance   tech
+	//@Published var influence = 26  // influence
+	@Published var drive = 29  // drive
+	@Published var collaboration = 28
+	
+	
 	
 	// the higher the overwhelm the slower a task takes to do
 	// the higher the overwhelm the lower the impact of your influence, tech, etc.
@@ -44,10 +47,11 @@ class Stats : ObservableObject {
 
 	@Published var moneyMakers = [MoneyMaker]()
 
+	@Published var genericCreatables = [GenericCreatable]()
 	@Published var creatableItemProxies = [CreatableItemProxy]()
-	
 	@Published var ads = [Ad]()
-	@Published var campaigns = [SalesCampaign]()
+	@Published var leadCampaigns = [LeadCampaign]()
+	@Published var salesCampaigns = [SalesCampaign]()
 	
 	@Published var marketingItems = [MarketingItem]()
 
@@ -69,7 +73,7 @@ class Stats : ObservableObject {
 			rv.append( .Ad(ad: ad) )
 		}
 		
-		for campaign in campaigns {
+		for campaign in salesCampaigns {
 			rv.append( .Campaign(campaign: campaign) )
 		}
 		
