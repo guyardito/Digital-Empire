@@ -32,6 +32,28 @@ struct GameView: View {
 			CreatableItemList(stats:game.stats)
 
 			
+			// lead campaigns
+			ScrollView(.horizontal)  {
+				ZStack {
+					Color.orange
+					HStack {
+						// multiple status view here
+						
+						ForEach(stats.leadCampaigns) { item in
+							Button(action: {
+								print("\(item.getName())")}
+							) {
+								CreatableItemView(item: item)
+							}
+							
+						}
+						.padding(.horizontal, 10)
+					}
+				}
+			}.frame(height: 100)
+			
+			
+			
 			// ads
 			List {
 				ForEach(stats.ads, id:\.self.name) { data in
@@ -41,9 +63,9 @@ struct GameView: View {
 		
 			Spacer(minLength: CGFloat(40))
 
-			// campaigns
+			// sales campaigns
 			List {
-				ForEach(game.stats.campaigns, id:\.self.name) { data in
+				ForEach(game.stats.salesCampaigns, id:\.self.name) { data in
 					SalesCampaignView(data:data)
 					
 					// NB  having trouble getting 'if / else' to compile within ForEach,
