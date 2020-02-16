@@ -162,7 +162,7 @@ class GameCoordinator : ObservableObject {
 			}
 		}
 		
-		for campaign in stats.campaigns {
+		for campaign in stats.salesCampaigns {
 			if stats.gameTimeInDays >= campaign.startDay  &&  stats.gameTimeInDays <= campaign.endDay  {
 				campaign.isClosed = false
 			} else {
