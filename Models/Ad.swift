@@ -13,6 +13,8 @@ import Foundation
 
 
 class Ad : Identifiable, ObservableObject, CreatableItem  {
+	var uid: Int
+
 	
 	func getItemType() -> CreatableItemType {
 		return .Ad
@@ -25,9 +27,6 @@ class Ad : Identifiable, ObservableObject, CreatableItem  {
 	var statusPublisher: Published<CreatableItemStatus>.Publisher { $status }
 	
 
-	
-	var id:Int
-	
 		
 	
 	@Published var name:String
@@ -47,7 +46,8 @@ class Ad : Identifiable, ObservableObject, CreatableItem  {
 	
 	
 	init(name:String, dailySpend:Int, clickThru:Int, totalClicks:Int, costPerClick:Float, dayStartRunning:Int, dayStartCreating:Int, daysToCreate:Int ) {
-		self.id = name.hashValue
+		//self.id = name.hashValue
+		self.uid = name.hashValue
 		self.name = name
 		self.dailySpend = dailySpend
 		self.clickThru = clickThru
@@ -68,6 +68,7 @@ class Ad : Identifiable, ObservableObject, CreatableItem  {
 		
 		self.isClosed = true
 	}
+	
 }
 
 
@@ -75,7 +76,7 @@ class Ad : Identifiable, ObservableObject, CreatableItem  {
 func computeDaysToCreate(stats:Stats) -> Int {
 	var rv = 1.0
 	
-	rv = Double(100) / Double(stats.tech)   +  Double(100) / Double(stats.audacity)
+	rv = Double(100) / Double(stats.compliance)   +  Double(100) / Double(stats.drive)
 	
 	return Int(rv)
 }
@@ -86,7 +87,7 @@ func computeCostPerClick(stats:Stats) -> Float {
 	
 	var rv = 1.25
 	
-	let effectivenssFactor = Double(100) / Double(stats.copywriting)
+	let effectivenssFactor = Double(100) / Double(stats.influence)
 	
 	rv = rv * effectivenssFactor
 	
@@ -103,7 +104,7 @@ func computeCostPerClick(stats:Stats) -> Float {
 extension Ad {
 	
 	func getUniqueID() -> Int {
-		return id
+		return uid
 	}
 	
 	
