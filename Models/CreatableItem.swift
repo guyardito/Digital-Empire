@@ -20,8 +20,29 @@ enum CreatableItemStatus : String {
 
 
 
+
+
+enum CreatableItemType : String {
+	
+	case LeadCampaign
+	case SalesCampaign
+	
+	case Ad
+	case BlogPost
+	case Freebie
+	case Course
+	case SalesPage
+	case Website
+	case EmailCampaign
+}
+
+
+
+
 protocol CreatableItem {
 	
+	var uid: Int { get set  }
+
 	func getName() -> String
 	
 	func getDayStartedCreating() -> Int
@@ -41,17 +62,55 @@ protocol CreatableItem {
 
 
 
-class CreatableItemProxy : Identifiable, ObservableObject {
-	var id: Int
+
+class CreatableItemProxy : Identifiable, ObservableObject { //}, CreatableItem {
+
+	var uid: Int = 0
 	
 	@Published var item:CreatableItem
+
+	func getID() -> Int {
+		return uid
+	}
 	
 	
 	init(item:CreatableItem) {
 		self.item = item
-		
-		id = item.getName().hashValue
+	
+		uid = item.getName().hashValue
 	}
+	
+	
+	
+	
+	func getName() -> String {
+		return self.item.getName()
+	}
+	
+	func getDayStartedCreating() -> Int {
+		return self.item.getDayStartedCreating()
+	}
+	
+	func setDayStartedCreating(arg: Int) {
+		self.item.setDayStartedCreating(arg: arg)
+	}
+	
+	func getDaysToCreate() -> Int {
+		return self.item.getDaysToCreate()
+	}
+	
+	func setDaysToCreate(arg: Int) {
+		self.item.setDaysToCreate(arg: arg)
+	}
+	
+	func getUniqueID() -> Int {
+		return self.item.getUniqueID()
+	}
+	
+	func getItemType() -> CreatableItemType {
+		return self.item.getItemType()
+	}
+	
 }
 
 
@@ -63,19 +122,6 @@ class CreatableItemProxy : Identifiable, ObservableObject {
 
 
 
-
-enum CreatableItemType : String {
-	
-	case Ad
-	case BlogPost
-	case Freebie
-	case Course
-	case SalesPage
-	case Website
-	case EmailCampaign
-}
-
-
 //struct CreatableItem {
 //	let type : CreatableItemType   // ad, blogPost, freebie, salespage, emailCampaign, course
 //	let name : String
@@ -85,11 +131,17 @@ enum CreatableItemType : String {
 //}
 
 
-func timeToCreate<CreatableItem: Identifiable>(item:CreatableItem) -> Int {
+func daysToCreate(item:CreatableItem, stats:Stats) -> Int {
 	var rv = 0
-	let itemType: CreatableItemType = .Website
+	let itemType: CreatableItemType = item.getItemType()
 	
 	switch itemType {
+		case .LeadCampaign:
+		rv = 30
+		
+		case .SalesCampaign:
+		rv = 60
+		
 		case .Ad:
 		rv = 5
 		
@@ -110,9 +162,7 @@ func timeToCreate<CreatableItem: Identifiable>(item:CreatableItem) -> Int {
 		
 		case .EmailCampaign:
 		rv = 45
-		
-		@unknown default:
-		rv = 10
+
 	}
 	
 	// adjust value for 'Drive' score
@@ -128,7 +178,7 @@ func timeToCreate<CreatableItem: Identifiable>(item:CreatableItem) -> Int {
 
 
 
-func costToImplement(moneyMaker:MoneyMakerType) -> Int {
+func costToCreate(moneyMaker:MoneyMakerType) -> Int {
 	
 	switch moneyMaker {
 	case .Webinar: return 100
