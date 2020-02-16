@@ -11,11 +11,11 @@ import SwiftUI
 
 struct CreatableItemView: View {
 	
-	@ObservedObject var item:CreatableItemProxy
+	@State var item:CreatableItem
 		
 	
 	func colorForStatus(status:CreatableItemStatus) -> Color {
-		switch item.item.status {
+		switch item.status {
 			case .NotStarted:
 				return .gray
 			
@@ -38,9 +38,9 @@ struct CreatableItemView: View {
 	var body: some View {
 		
 		let body = 	Group {
-			Text("\(item.item.getName()): \(item.item.getItemType().rawValue)")
-			Text("Build: \(item.item.getDayStartedCreating()) / \(item.item.getDayStartedCreating()+item.item.getDaysToCreate())")
-			Text("\(item.item.status.rawValue)")
+			Text("\(item.getName()): \(item.getItemType().rawValue)")
+			Text("Build: \(item.getDayStartedCreating()) / \(item.getDayStartedCreating()+item.getDaysToCreate())")
+			Text("\(item.status.rawValue)")
 		}.frame(width:100)
 		
 		
@@ -64,7 +64,7 @@ struct CreatableItemView: View {
 
 				
 		}
-		.foregroundColor(colorForStatus(status: item.item.status))
+		.foregroundColor(colorForStatus(status: item.status))
 		.padding()
 		.overlay(
 			RoundedRectangle(cornerRadius: 20)
@@ -77,6 +77,7 @@ struct CreatableItemView_Previews: PreviewProvider {
 	static var ad = Ad(name: "ad 6", dailySpend: 8, clickThru: 4, totalClicks: 2391, costPerClick: 7.25, dayStartRunning: 15, dayStartCreating: 3, daysToCreate: 10)
 	
     static var previews: some View {
-		CreatableItemView(item: CreatableItemProxy(item:ad) )
+		//CreatableItemView(item: CreatableItemProxy(item:ad) )
+		CreatableItemView(item:ad)
     }
 }
