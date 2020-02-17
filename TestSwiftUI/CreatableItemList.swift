@@ -9,12 +9,13 @@
 import SwiftUI
 
 
+
 struct CreatableItemList: View {
 	
 	//@EnvironmentObject var game:GameCoordinator
 	
 	@ObservedObject var stats:Stats  // NB need this declaration to recognize changes to the array
-
+	
 	var body: some View {
 		ScrollView(.horizontal) {
 			ZStack {
@@ -22,17 +23,17 @@ struct CreatableItemList: View {
 				Color.yellow
 				HStack {
 					// multiple status view here
-					//Text("hi")
 					
-					//ForEach([Text("yes"), Text("no")], id:\.self.UUID) { item in
-					// NB we can't use a function here becaise 'id' wants a KEYPATH !!!
-					ForEach(stats.genericCreatables, id:\.self.uid ) { item in
-					//ForEach(stats.ads) { item in
-						Button(action: {
-							//print("\(item.item.getName())")}
-							//print("Hi")
-						} ) {
-							CreatableItemView(item: item)
+					// NB it *seems* like we need to use path ".id" for this to work, NOT (for example) ".uid"
+					//ForEach(stats.genericCreatables, id: \.id)  { item in
+					
+					ForEach(stats.creatableItemProxies)  { proxy in
+						
+						Button(action: { print("\(proxy.item.getName())")  }  )
+						{
+							// NB passing the wrong type here (like just 'item') results in a weird error: Cannot convert value of type 'ZStack<TupleView<(Color, HStack<some View>)>>' to closure result type '_'
+							CreatableItemView(item: proxy.item)
+							
 						}
 						
 					}
