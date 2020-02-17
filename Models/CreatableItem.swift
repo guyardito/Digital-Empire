@@ -65,23 +65,23 @@ protocol CreatableItem {
 
 class CreatableItemProxy : Identifiable, ObservableObject { //}, CreatableItem {
 
-	var uid: Int = 0
+	var id: Int
 	
 	@Published var item:CreatableItem
 
-	func getID() -> Int {
-		return uid
-	}
-	
+
 	
 	init(item:CreatableItem) {
 		self.item = item
 	
-		uid = item.getName().hashValue
+		id = item.getName().hashValue
 	}
 	
 	
-	
+	/*
+	func getID() -> Int {
+		return id
+	}
 	
 	func getName() -> String {
 		return self.item.getName()
@@ -110,7 +110,7 @@ class CreatableItemProxy : Identifiable, ObservableObject { //}, CreatableItem {
 	func getItemType() -> CreatableItemType {
 		return self.item.getItemType()
 	}
-	
+	*/
 }
 
 
