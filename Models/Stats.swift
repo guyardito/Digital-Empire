@@ -21,11 +21,11 @@ class Stats : ObservableObject {
 	@Published var gameTimeInDays = 1
 
 	// skills
-	@Published var influence = 20  // copywriting  
-	@Published var compliance = 23   // compliance   tech
+	@Published var charm = 20  // copywriting  
+	@Published var precision = 23   // compliance   tech
 	//@Published var influence = 26  // influence
 	@Published var drive = 29  // drive
-	@Published var collaboration = 28
+	@Published var creativity = 28
 	
 	
 	

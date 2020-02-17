@@ -32,10 +32,10 @@ struct ControlPanelView: View {
 				message: Text(""),
 				buttons: [
 					// Influence  Organization  Drive  Vision
-					.default(Text("Copywriting"), action: { self.game.powerUp(.Influence)   } ),
-					.default(Text("Tech"), action: { self.game.powerUp(.Organization)   } ),
-					.default(Text("Influence"), action: { self.game.powerUp(.Influence)   } ),
-					.default(Text("Audacity"), action: { self.game.powerUp(.Drive)   } ),
+					.default(Text("Charm"), action: { self.game.powerUp(.Charm)   } ),
+					.default(Text("Tech"), action: { self.game.powerUp(.Precision)   } ),
+					.default(Text("Creativity"), action: { self.game.powerUp(.Creativity)   } ),
+					.default(Text("Drive"), action: { self.game.powerUp(.Drive)   } ),
 					
 					.cancel()
 					//.destructive(Text("Cancel"))

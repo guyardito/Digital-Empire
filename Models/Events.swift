@@ -47,7 +47,7 @@ enum ChanceEvent {
 	case websiteDown
 	case paymentProcessingDown
 	case userComplains
-	case InfluenceComplains
+	case InfluencerComplains
 	case socialMediaCancelsYourAccount
 	case userSues
 	

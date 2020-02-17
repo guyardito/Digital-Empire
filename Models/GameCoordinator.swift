@@ -11,9 +11,9 @@ import Foundation
 
 enum AttributeType {
 	case Drive
-	case Vision
-	case Organization
-	case Influence
+	case Creativity
+	case Precision
+	case Charm
 }
 
 

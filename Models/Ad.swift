@@ -76,7 +76,14 @@ class Ad : Identifiable, ObservableObject, CreatableItem  {
 func computeDaysToCreate(stats:Stats) -> Int {
 	var rv = 1.0
 	
-	rv = Double(100) / Double(stats.compliance)   +  Double(100) / Double(stats.drive)
+	rv = 300.0 / Double(stats.precision + stats.drive + stats.creativity)
+	
+	guard rv <= 10 else {
+		return 10
+	}
+	
+	// NB  'charm' will be used to compute the effectiveness
+	
 	
 	return Int(rv)
 }
@@ -87,7 +94,7 @@ func computeCostPerClick(stats:Stats) -> Float {
 	
 	var rv = 1.25
 	
-	let effectivenssFactor = Double(100) / Double(stats.influence)
+	let effectivenssFactor = Double(100) / Double(stats.charm)
 	
 	rv = rv * effectivenssFactor
 	

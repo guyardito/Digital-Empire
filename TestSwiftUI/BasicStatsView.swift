@@ -93,26 +93,26 @@ struct BasicStatsView: View {
 			HStack {
 				Spacer()
 				VStack {
-					Text("\(stats.influence)")
-					Text("Copywriting").font(.caption)
+					Text("\(stats.creativity)")
+					Text("Creativity").font(.caption)
 					
 				}
 				Spacer()
 				VStack {
-					Text("\(stats.compliance)")
-					Text("Tech").font(.caption)
+					Text("\(stats.precision)")
+					Text("Precision").font(.caption)
 					
 				}
 				Spacer()
 				VStack {
-					Text("\(stats.influence)")
-					Text("Influence").font(.caption)
+					Text("\(stats.charm)")
+					Text("Charm").font(.caption)
 					
 				}
 				Spacer()
 				VStack {
 					Text("\(stats.drive)")
-					Text("Audacity").font(.caption)
+					Text("Drive").font(.caption)
 					
 				}
 				Spacer()
