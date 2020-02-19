@@ -37,12 +37,12 @@ struct CreatableItemList: View {
 						}
 						
 					}
-					.padding(.horizontal, CGFloat(10) )
+					.padding(.horizontal, CGFloat(70) )
 					
 				}
 				
 			}
-		} .frame(height: 100)
+		} .frame(height: 150)
 		
 	}
 }
