@@ -270,6 +270,16 @@ class GameCoordinator : ObservableObject {
 	
 	
 	func createLeadCampaign() {
+		var timeToCreate = LeadCampaign.computeDaysToCreate(stats:stats)
+		var percentWhoOptIn = 0
+		var adSpend = 5.0
+		let startDay = self.stats.gameTimeInDays + 1
+		let endDay = startDay + timeToCreate
+		
+		var rv = LeadCampaign(name: "leads cmpn \(self.stats.creatableItemProxies.count)", product: "??", price: 0, startDay: startDay, endDay: endDay, percent: percentWhoOptIn, adSpend: Int(adSpend), dayStartCreating: startDay, daysToCreate: timeToCreate)
+		
+		stats.creatableItemProxies.append(CreatableItemProxy(item: rv) )
+		
 		print("create lead campaign")
 	}
 	
@@ -281,6 +291,20 @@ class GameCoordinator : ObservableObject {
 
 	
 	func createSalesCampaign() {
+		var timeToCreate = LeadCampaign.computeDaysToCreate(stats:stats)
+		var percentWhoOptIn = 0
+		var adSpend = 5.0
+		let startDay = self.stats.gameTimeInDays + 1
+		let endDay = startDay + timeToCreate
+		
+		var rv = SalesCampaign(name: "sales cmpn \(self.stats.creatableItemProxies.count)", product: "??", price: 0, startDay: startDay, endDay: endDay, percent: percentWhoOptIn, adSpend: Int(adSpend), dayStartCreating: startDay, daysToCreate: timeToCreate)
+		
+		// NB!!!  a sales campaign can ALSO generate subscribers who *DONT* buy !!!
+		// assume the opt-in rate is the same as a lead campaign
+		// HOWEVER, the purchase rate will be higher for those who have subscribed a while ASSUMING that the player regularly emails/posts/etc in order to maintain engagement
+		
+		stats.creatableItemProxies.append(CreatableItemProxy(item: rv) )
+
 		print("create sales campaign")
 	}
 	

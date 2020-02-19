@@ -12,7 +12,7 @@ import SwiftUI
 struct CreatableItemView: View {
 	
 	@State var item:CreatableItem
-		
+	@State var itemStatus:CreatableItemStatus
 	
 	func colorForStatus(status:CreatableItemStatus) -> Color {
 		switch item.status {
@@ -39,7 +39,7 @@ struct CreatableItemView: View {
 		
 		let body = 	Group {
 			Text("\(item.getName()): \(item.getItemType().rawValue)")
-			Text("Build: \(item.getDayStartedCreating()) / \(item.getDayStartedCreating()+item.getDaysToCreate())")
+			Text("Build: \(item.getDayStartedCreating())  \(item.getDayStartedCreating()+item.getDaysToCreate())")
 			Text("\(item.status.rawValue)")
 		}.frame(width:100)
 		
@@ -60,7 +60,7 @@ struct CreatableItemView: View {
 			*/
 			
 			
-			body
+		return	body
 
 				
 		}
@@ -78,6 +78,6 @@ struct CreatableItemView_Previews: PreviewProvider {
 	
     static var previews: some View {
 		//CreatableItemView(item: CreatableItemProxy(item:ad) )
-		CreatableItemView(item:ad)
+		CreatableItemView(item:ad, itemStatus: ad.status)
     }
 }

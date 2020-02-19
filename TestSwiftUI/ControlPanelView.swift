@@ -49,10 +49,10 @@ struct ControlPanelView: View {
 				message: Text(""),
 				buttons: [
 					.default(Text("Ad"), action: {  self.game.createAd()  } ),
-					.default(Text("Lead Campaign"), action: {   } ),
+					.default(Text("Lead Campaign"), action: { self.game.createLeadCampaign()   } ),
 					//.default(Text("Sales Page"), action: {   } ),
-					.default(Text("Sales Campaign"), action: {   } ),
-					.default(Text("Adjust Branding"), action: {   } ),
+					.default(Text("Sales Campaign"), action: { self.game.createSalesCampaign()   } ),
+					.default(Text("Adjust Branding"), action: { self.game.adjustBranding()   } ),
 					//.default(Text("Hire Marketing Agency"), action: {   } ),
 					//.default(Text("Hire Social Media Manager"), action: {   } ),
 					//.default(Text("Hire Marketing Agency"), action: {   } ),

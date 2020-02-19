@@ -27,11 +27,11 @@ class LeadCampaign : CreatableItem, Identifiable, ObservableObject {
 	}
 	
 	func getDaysToCreate() -> Int {
-		return endDay - dayStartedCreating
+		return daysToCreate
 	}
 	
 	func setDaysToCreate(arg: Int) {
-		endDay = dayStartedCreating + arg
+		daysToCreate = arg
 	}
 	
 	func getUniqueID() -> Int {
@@ -45,7 +45,7 @@ class LeadCampaign : CreatableItem, Identifiable, ObservableObject {
 	@Published var status: CreatableItemStatus = .NotStarted
 	var statusPublished: Published<CreatableItemStatus> { _status }
 	var statusPublisher: Published<CreatableItemStatus>.Publisher { $status }
-
+	
 	
 	var id:Int
 	
@@ -56,6 +56,8 @@ class LeadCampaign : CreatableItem, Identifiable, ObservableObject {
 	@Published var endDay:Int = 0
 	@Published var isClosed = false
 	
+	@Published var dayStartCreating:Int
+	@Published var daysToCreate:Int
 	
 	@Published var percentWhoOptin:Int = 0
 	
@@ -66,7 +68,7 @@ class LeadCampaign : CreatableItem, Identifiable, ObservableObject {
 	@Published  var profit:Int = 0
 	
 	
-	init(name:String, product:String, price:Int, startDay:Int, endDay:Int, percent:Int, adSpend:Int) {
+	init(name:String, product:String, price:Int, startDay:Int, endDay:Int, percent:Int, adSpend:Int, dayStartCreating:Int, daysToCreate:Int ) {
 		self.status = .NotStarted
 		self.id = name.hashValue
 		self.uid = self.id
@@ -78,10 +80,36 @@ class LeadCampaign : CreatableItem, Identifiable, ObservableObject {
 		
 		self.percentWhoOptin = percent
 		
+		self.dayStartCreating = dayStartCreating
+		self.daysToCreate = daysToCreate
+		
 		self.adSpend = adSpend
 		
 	}
+
+	
+	
+	
+	static func computeConversionPercent(stats:Stats) -> Int {
+		var rv = 1
+		
+		// baseline = 30 for all relevant skills at 50
+		
+		// drive, creativity, tech
+		
+		return rv
+	}
+	
+	
+	
+	static func computeDaysToCreate(stats:Stats) -> Int {
+		var rv = 30
+		
+		return rv
+	}
+
 }
+
 
 
 

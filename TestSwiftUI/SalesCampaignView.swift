@@ -72,7 +72,7 @@ struct SalesCampaignView: View {
 
 struct CampaignView_Previews: PreviewProvider {
 	
-	static var cpn = SalesCampaign(name: "cmpn 1", product: "Sell Your Soul", price: 499, startDay: 30, endDay: 37, percent: 2, adSpend: 500)
+	static var cpn = SalesCampaign(name: "cmpn 1", product: "Sell Your Soul", price: 499, startDay: 30, endDay: 37, percent: 2, adSpend: 500, dayStartCreating: 30, daysToCreate: 45)
 
 	
     static var previews: some View {

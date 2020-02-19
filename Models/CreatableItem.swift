@@ -42,7 +42,7 @@ enum CreatableItemType : String {
 protocol CreatableItem {
 	
 	var uid: Int { get set  }
-
+	
 	func getName() -> String
 	
 	func getDayStartedCreating() -> Int
@@ -59,7 +59,6 @@ protocol CreatableItem {
 	var statusPublished: Published<CreatableItemStatus> { get  }
 	var statusPublisher: Published<CreatableItemStatus>.Publisher { get  }
 }
-
 
 
 
@@ -130,10 +129,10 @@ class CreatableItemProxy : Identifiable, ObservableObject { //}, CreatableItem {
 //	var timeLeftTillCreated = 0 	// in game ticks
 //}
 
-
+/*
 func daysToCreate(item:CreatableItem, stats:Stats) -> Int {
 	var rv = 0
-	let itemType: CreatableItemType = item.getItemType()
+	let itemType: CreatableItemType  = .EmailCampaign  // = item.itemType
 	
 	switch itemType {
 		case .LeadCampaign:
@@ -173,7 +172,7 @@ func daysToCreate(item:CreatableItem, stats:Stats) -> Int {
 	
 	return rv
 }
-
+*/
 
 
 

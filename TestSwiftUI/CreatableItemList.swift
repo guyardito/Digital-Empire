@@ -32,7 +32,7 @@ struct CreatableItemList: View {
 						Button(action: { print("\(proxy.item.getName())")  }  )
 						{
 							// NB passing the wrong type here (like just 'item') results in a weird error: Cannot convert value of type 'ZStack<TupleView<(Color, HStack<some View>)>>' to closure result type '_'
-							CreatableItemView(item: proxy.item)
+							CreatableItemView(item: proxy.item, itemStatus: proxy.item.status)
 							
 						}
 						

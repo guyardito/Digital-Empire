@@ -19,19 +19,19 @@ class SalesCampaign : CreatableItem, Identifiable, ObservableObject {
 	}
 	
 	func getDayStartedCreating() -> Int {
-		return startDay
+		return dayStartCreating
 	}
 	
 	func setDayStartedCreating(arg: Int) {
-		startDay = arg
+		dayStartCreating = arg
 	}
 	
 	func getDaysToCreate() -> Int {
-		return endDay - startDay
+		return daysToCreate
 	}
 	
 	func setDaysToCreate(arg: Int) {
-		endDay = startDay + arg
+		daysToCreate = arg
 	}
 	
 	func getUniqueID() -> Int {
@@ -43,11 +43,11 @@ class SalesCampaign : CreatableItem, Identifiable, ObservableObject {
 	}
 	
 	var id:Int
-
+	
 	@Published var status: CreatableItemStatus = .NotStarted
 	var statusPublished: Published<CreatableItemStatus> { _status }
 	var statusPublisher: Published<CreatableItemStatus>.Publisher { $status }
-
+	
 	@Published var name:String = ""
 	
 	@Published var product:String = ""
@@ -56,6 +56,9 @@ class SalesCampaign : CreatableItem, Identifiable, ObservableObject {
 	@Published var startDay:Int = 0
 	@Published var endDay:Int = 0
 	@Published var isClosed = false
+	
+	@Published var dayStartCreating:Int
+	@Published var daysToCreate:Int
 	
 	
 	@Published var percentWhoPurchase:Int = 0
@@ -67,7 +70,7 @@ class SalesCampaign : CreatableItem, Identifiable, ObservableObject {
 	@Published  var profit:Int = 0
 	
 	
-	init(name:String, product:String, price:Int, startDay:Int, endDay:Int, percent:Int, adSpend:Int) {
+	init(name:String, product:String, price:Int, startDay:Int, endDay:Int, percent:Int, adSpend:Int, dayStartCreating:Int, daysToCreate:Int) {
 		self.id = name.hashValue
 		self.uid = self.id
 		
@@ -81,19 +84,36 @@ class SalesCampaign : CreatableItem, Identifiable, ObservableObject {
 		self.percentWhoPurchase = percent
 		
 		self.adSpend = adSpend
+		
+		self.dayStartCreating = dayStartCreating
+		self.daysToCreate = daysToCreate
+	}
+
+	
+	static func computeConversionPercent(stats:Stats, productPrice:Int) -> Int {
+		
+		let r = ( stats.audienceCongruence * stats.audienceEngagement ) / 100
+		var rv = 0
+		
+		
+		// baseline = 30 for all relevant skills at 50
+		
+		// drive, creativity, tech
+
+		return rv
+	}
+	
+
+	
+	
+	static func computeDaysToCreate(stats:Stats) -> Int {
+		var rv = 30
+		
+		return rv
 	}
 }
 
 
 
-
-func computePercentWhoPurchase(stats:Stats, productPrice:Int) -> Int {
-	
-	let r = ( stats.audienceCongruence * stats.audienceEngagement ) / 100
-	var rv = 0
-	
-	
-	return rv
-}
 
 

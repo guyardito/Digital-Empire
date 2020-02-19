@@ -43,7 +43,7 @@ struct GameView: View {
 							Button(action: {
 								print("\(item.getName())")}
 							) {
-								CreatableItemView(item: item)
+								CreatableItemView(item: item, itemStatus: item.status)
 							}
 							
 						}
