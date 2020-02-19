@@ -48,7 +48,8 @@ class Stats : ObservableObject {
 	@Published var moneyMakers = [MoneyMaker]()
 
 	@Published var genericCreatables = [GenericCreatable]()
-	@Published var creatableItemProxies = [CreatableItemProxy]()
+	@Published var activeCreatableItemProxies = [CreatableItemProxy]()
+	@Published var inactiveCreatableItemProxies = [CreatableItemProxy]()
 	@Published var ads = [Ad]()
 	@Published var leadCampaigns = [LeadCampaign]()
 	@Published var salesCampaigns = [SalesCampaign]()

@@ -15,6 +15,7 @@ struct CreatableItemList: View {
 	//@EnvironmentObject var game:GameCoordinator
 	
 	@ObservedObject var stats:Stats  // NB need this declaration to recognize changes to the array
+	//@State var proxies:NSMutableArray //:[CreatableItemProxy]
 	
 	var body: some View {
 		ScrollView(.horizontal) {
@@ -27,7 +28,7 @@ struct CreatableItemList: View {
 					// NB it *seems* like we need to use path ".id" for this to work, NOT (for example) ".uid"
 					//ForEach(stats.genericCreatables, id: \.id)  { item in
 					
-					ForEach(stats.creatableItemProxies)  { proxy in
+					ForEach(stats.inactiveCreatableItemProxies)  { proxy in
 						
 						Button(action: { print("\(proxy.item.getName())")  }  )
 						{

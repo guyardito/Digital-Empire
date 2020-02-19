@@ -29,9 +29,40 @@ struct GameView: View {
 					.transition(.move(edge: .bottom))
 			} 
 			
-			CreatableItemList(stats:game.stats)
+			//CreatableItemList(stats:game.stats)
+
+			ScrollView(.horizontal) {
+				ZStack {
+					Color.yellow
+					HStack {
+						ForEach(stats.inactiveCreatableItemProxies)  { proxy in
+							Button(action: { print("\(proxy.item.getName())")  }  ) {
+								CreatableItemView(item: proxy.item, itemStatus: proxy.item.status)
+							}
+						}
+						.padding(.horizontal, CGFloat(70) )
+					}
+				}
+			} .frame(height: 150)
+			
+			
+			ScrollView(.horizontal) {
+				ZStack {
+					Color.orange
+					HStack {
+						ForEach(stats.activeCreatableItemProxies)  { proxy in
+							Button(action: { print("\(proxy.item.getName())")  }  ) {
+								CreatableItemView(item: proxy.item, itemStatus: proxy.item.status)
+							}
+						}
+						.padding(.horizontal, CGFloat(70) )
+					}
+				}
+			} .frame(height: 150)
+			
 
 			
+			/*
 			// lead campaigns
 			ScrollView(.horizontal)  {
 				ZStack {
@@ -51,7 +82,7 @@ struct GameView: View {
 					}
 				}
 			}.frame(height: 100)
-			
+			*/
 			
 			
 			// ads
@@ -64,15 +95,15 @@ struct GameView: View {
 			Spacer(minLength: CGFloat(40))
 
 			// sales campaigns
-			List {
-				ForEach(game.stats.salesCampaigns, id:\.self.name) { data in
-					SalesCampaignView(data:data)
-					
-					// NB  having trouble getting 'if / else' to compile within ForEach,
-					// so moved the logic to within the row's View
-				}
-				
-			}
+//			List {
+//				ForEach(game.stats.salesCampaigns, id:\.self.name) { data in
+//					SalesCampaignView(data:data)
+//					
+//					// NB  having trouble getting 'if / else' to compile within ForEach,
+//					// so moved the logic to within the row's View
+//				}
+//				
+//			}
 
 			Spacer(minLength: CGFloat(20))
 			

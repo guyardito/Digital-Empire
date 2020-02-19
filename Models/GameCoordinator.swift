@@ -99,13 +99,16 @@ class GameCoordinator : ObservableObject {
 	
 	func processItemCreation() {
 		
-		for (idx, item) in stats.creatableItemProxies.enumerated() {
-			if item.item.getDayStartedCreating() == stats.gameTimeInDays {
-				stats.creatableItemProxies[idx].item.status = .Building
+		for (idx, proxy) in stats.inactiveCreatableItemProxies.enumerated() {
+			if proxy.item.getDayStartedCreating() == stats.gameTimeInDays {
+				stats.inactiveCreatableItemProxies[idx].item.status = .Building
 				
-			} else if /* stats.gameTimeInDays >= item.item.getDayStartedCreating()  && */  ( item.item.getDayStartedCreating() + item.item.getDaysToCreate()) == stats.gameTimeInDays {
+			} else if /* stats.gameTimeInDays >= item.item.getDayStartedCreating()  && */  ( proxy.item.getDayStartedCreating() + proxy.item.getDaysToCreate()) == stats.gameTimeInDays {
 				//stats.creatableItems[idx].item.setStatus(arg: .Ready)
-				stats.creatableItemProxies[idx].item.status = .Ready
+				stats.inactiveCreatableItemProxies.remove(at: idx)
+				proxy.item.status = .Ready
+				stats.activeCreatableItemProxies.append(proxy)
+				//stats.inactiveCreatableItemProxies[idx].item.status = .Ready
 				
 			}
 			
@@ -262,9 +265,9 @@ class GameCoordinator : ObservableObject {
 		stats.ads.insert(ad, at: 0)
 		
 		let e = CreatableItemProxy(item: ad)
-		stats.creatableItemProxies.append(e)
+		stats.inactiveCreatableItemProxies.append(e)
 		
-		print("\(stats.ads.count) ads,  \(stats.creatableItemProxies.count) creatables")
+		print("\(stats.ads.count) ads,  \(stats.inactiveCreatableItemProxies.count) creatables")
 	}
 	
 	
@@ -276,9 +279,9 @@ class GameCoordinator : ObservableObject {
 		let startDay = self.stats.gameTimeInDays + 1
 		let endDay = startDay + timeToCreate
 		
-		var rv = LeadCampaign(name: "leads cmpn \(self.stats.creatableItemProxies.count)", product: "??", price: 0, startDay: startDay, endDay: endDay, percent: percentWhoOptIn, adSpend: Int(adSpend), dayStartCreating: startDay, daysToCreate: timeToCreate)
+		var rv = LeadCampaign(name: "leads cmpn \(self.stats.inactiveCreatableItemProxies.count)", product: "??", price: 0, startDay: startDay, endDay: endDay, percent: percentWhoOptIn, adSpend: Int(adSpend), dayStartCreating: startDay, daysToCreate: timeToCreate)
 		
-		stats.creatableItemProxies.append(CreatableItemProxy(item: rv) )
+		stats.inactiveCreatableItemProxies.append(CreatableItemProxy(item: rv) )
 		
 		print("create lead campaign")
 	}
@@ -297,13 +300,13 @@ class GameCoordinator : ObservableObject {
 		let startDay = self.stats.gameTimeInDays + 1
 		let endDay = startDay + timeToCreate
 		
-		var rv = SalesCampaign(name: "sales cmpn \(self.stats.creatableItemProxies.count)", product: "??", price: 0, startDay: startDay, endDay: endDay, percent: percentWhoOptIn, adSpend: Int(adSpend), dayStartCreating: startDay, daysToCreate: timeToCreate)
+		var rv = SalesCampaign(name: "sales cmpn \(self.stats.inactiveCreatableItemProxies.count)", product: "??", price: 0, startDay: startDay, endDay: endDay, percent: percentWhoOptIn, adSpend: Int(adSpend), dayStartCreating: startDay, daysToCreate: timeToCreate)
 		
 		// NB!!!  a sales campaign can ALSO generate subscribers who *DONT* buy !!!
 		// assume the opt-in rate is the same as a lead campaign
 		// HOWEVER, the purchase rate will be higher for those who have subscribed a while ASSUMING that the player regularly emails/posts/etc in order to maintain engagement
 		
-		stats.creatableItemProxies.append(CreatableItemProxy(item: rv) )
+		stats.inactiveCreatableItemProxies.append(CreatableItemProxy(item: rv) )
 
 		print("create sales campaign")
 	}
