@@ -8,6 +8,17 @@
 
 import SwiftUI
 
+
+
+func degreesFrom(pct:Int) -> Double {
+	let rv =  360.0 * Double(pct) / 100.0
+	
+	return rv
+}
+
+
+
+
 struct BasicStatsView: View {
 	
 	
@@ -93,30 +104,56 @@ struct BasicStatsView: View {
 			HStack {
 				Spacer()
 				VStack {
-					Text("\(stats.creativity)")
+					//Text("\(stats.creativity)")
 					Text("Creativity").font(.caption)
 					
-				}
+				}.font(.title)
+				.foregroundColor(.purple)
+					.overlay ( Arc(startAngle: .degrees(0), endAngle: .degrees(degreesFrom(pct: stats.creativity)), clockwise: true)
+					.stroke(Color.purple, lineWidth: 5)
+					.frame(width: 60, height: 100)
+				)
+				
 				Spacer()
+				
 				VStack {
-					Text("\(stats.precision)")
+					//Text("\(stats.precision)")
 					Text("Precision").font(.caption)
 					
-				}
+				}.font(.title)
+				.foregroundColor(.blue)
+				.overlay ( Arc(startAngle: .degrees(0), endAngle: .degrees(degreesFrom(pct: stats.precision)), clockwise: true)
+					.stroke(Color.blue, lineWidth: 5)
+					.frame(width: 60, height: 100)
+				)
+				
+				
 				Spacer()
 				VStack {
-					Text("\(stats.charm)")
+					//Text("\(stats.charm)")
 					Text("Charm").font(.caption)
 					
-				}
+				}.font(.title)
+				.foregroundColor(.yellow)
+				.overlay ( Arc(startAngle: .degrees(0), endAngle: .degrees(degreesFrom(pct: stats.charm)), clockwise: true)
+						.stroke(Color.yellow, lineWidth: 5)
+						.frame(width: 60, height: 100)
+				)
+				
 				Spacer()
 				VStack {
-					Text("\(stats.drive)")
+					//Text("\(stats.drive)")
 					Text("Drive").font(.caption)
 					
-				}
+				}.font(.title)
+				.foregroundColor(.red)
+				.overlay ( Arc(startAngle: .degrees(0), endAngle: .degrees(degreesFrom(pct: stats.drive)), clockwise: true)
+						.stroke(Color.red, lineWidth: 5)
+						.frame(width: 60, height: 100)
+				)
+				
 				Spacer()
-			}.font(.title).foregroundColor(.purple)
+			}.frame(height: 70)
 		}
 	}
 }
